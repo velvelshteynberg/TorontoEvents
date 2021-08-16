@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_16_014431) do
+ActiveRecord::Schema.define(version: 2021_08_16_151448) do
 
   create_table "caterers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2021_08_16_014431) do
     t.time "end_time"
     t.text "address"
     t.text "description"
-    t.boolean "approved"
-    t.boolean "require_update"
+    t.boolean "is_approved"
+    t.boolean "does_require_update"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_014431) do
     t.string "email"
     t.string "phone"
     t.string "password"
-    t.boolean "subscribe"
+    t.boolean "is_subscribed"
     t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
