@@ -1,0 +1,2 @@
+class HostOrganization < ApplicationRecord
+end
