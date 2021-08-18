@@ -9,7 +9,69 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div>
+    <nav>
+        <ul>
+
+            <li>
+                <%= link_to "About Us", about_us_about_us_path %>
+            </li>
+
+            <li>
+                <%= link_to "Events", events_path, :class=> "" %>
+            </li>
+
+            <li>
+                <%= link_to "Contact us", about_us_contact_path , :class=> "" %>
+            </li>
+
+            <li>
+                <%= link_to "Sign in", new_sessions_path, :class=> "" %>
+            </li>
+
+            <li>
+                <%= link_to "Sign up", new_user_path, :class=> "" %>
+            </li>
+
+            <li>
+                <%= link_to "Create Event", new_event_path, :class=> "" %>
+            </li>
+
+        </ul>
+    </nav>
+</div>
+
   <body>
     <%= yield %>
   </body>
+
+<div>
+  <nav>
+    <ul>
+
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+
+      <li>
+        <%= link_to "About us", about_us_about_us_path %>
+      </li>
+
+      <li>
+        <%= link_to "Contact us", about_us_contact_path %>
+      </li>
+    
+    </ul>
+  </nav>
+</div>
+
+<div>
+  <%= form_for :subscriber, url: subscribers_path do |f| %>
+
+    <%= f.label :Email %>
+    <%= f.email_field :Email %>
+    <div><%= f.submit "Sign up" %></div>
+
+    <% end %>
+</div>
 </html>
