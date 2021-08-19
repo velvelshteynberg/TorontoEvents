@@ -58,6 +58,8 @@ body {
     border: 2px black solid;
 }
 
+#circle { height: 15px, width: 15px;}
+
 .navBarItem {
     text-decoration: none;
 }
