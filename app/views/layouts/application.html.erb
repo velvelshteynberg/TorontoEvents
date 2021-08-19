@@ -9,69 +9,90 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div>
-    <nav>
-        <ul>
+
+
+<div class = "topNav">
+
+  <div class = 'item7'>
+    <img alt = 'logo' src = 'https://cdn.logo.com/hotlink-ok/logo-social.png' class = 'logo'>
+  </div>
+
+  <div class = 'item1'>
+    <nav class = 'navBar'>
+        <ul class = 'navBarUl'>
 
             <li>
-                <%= link_to "About Us", about_us_about_us_path %>
+                <%= link_to "About Us", about_us_about_us_path, :class => "navBarItem" %>
             </li>
 
             <li>
-                <%= link_to "Events", events_path, :class=> "" %>
+                <%= link_to "Events", events_path, :class=> "navBarItem" %>
             </li>
 
             <li>
-                <%= link_to "Contact us", about_us_contact_path , :class=> "" %>
+                <%= link_to "Contact us", about_us_contact_path , :class=> "navBarItem" %>
             </li>
 
             <li>
-                <%= link_to "Sign in", new_sessions_path, :class=> "" %>
+                <%= link_to "Sign in", new_sessions_path, :class=> "navBarItem" %>
             </li>
 
             <li>
-                <%= link_to "Sign up", new_user_path, :class=> "" %>
+                <%= link_to "Sign up", new_user_path, :class=> "navBarItem" %>
             </li>
 
             <li>
-                <%= link_to "Create Event", new_event_path, :class=> "" %>
+                <%= link_to "Create Event", new_event_path, :class=> "navBarItem" %>
             </li>
 
         </ul>
     </nav>
+  </div>
 </div>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+      <%= yield %>
+</body>
 
-<div>
-  <nav>
-    <ul>
+<div class = 'footer'>
+<div class = 'item3'>
+  <h1>Toronto Events</h1>
+  <h3>The Central Online Information Hub for Events in the Toronto Community</h3>
+  <%= link_to "Browse events", events_path, :class=> "button" %>
+</div>
+
+<div class = 'item4'>
+  <nav class = 'navBar'>
+    <ul class = 'navBarUl bottom'>
 
       <li>
-        <%= link_to "Home", root_path %>
+        <%= link_to "Home", root_path, :class => 'bottomNavBarItem' %>
       </li>
 
       <li>
-        <%= link_to "About us", about_us_about_us_path %>
+        <%= link_to "About us", about_us_about_us_path, :class => 'bottomNavBarItem' %>
       </li>
 
       <li>
-        <%= link_to "Contact us", about_us_contact_path %>
+        <%= link_to "Contact us", about_us_contact_path, :class => 'bottomNavBarItem' %>
       </li>
     
     </ul>
   </nav>
 </div>
 
-<div>
+<div class= 'item5'>
   <%= form_for :subscriber, url: subscribers_path do |f| %>
-
-    <%= f.label :Email %>
+    <%= f.label :Email, :class => 'bottomNavBarItem1' %>
     <%= f.email_field :Email %>
-    <div><%= f.submit "Sign up" %></div>
-
+    <%= f.submit "Sign up", :class => 'bottomNavBarItem1' %>
     <% end %>
 </div>
+
+</div>
+
+
+
+
+
 </html>
