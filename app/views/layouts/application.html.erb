@@ -82,8 +82,8 @@
 
 <div class= 'item5'>
   <%= form_for :subscriber, url: subscribers_path do |f| %>
-    <%= f.label :Email, :class => 'bottomNavBarItem1' %>
-    <%= f.email_field :Email %>
+    <%= f.label :email, :class => 'bottomNavBarItem1' %>
+    <%= f.email_field :email %>
     <%= f.submit "Sign up", :class => 'bottomNavBarItem1' %>
     <% end %>
 </div>
