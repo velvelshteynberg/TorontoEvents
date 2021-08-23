@@ -49,6 +49,11 @@
         </ul>
     </nav>
   </div>
+
+  <div class = 'item8'>
+  <h1 class = 'text'><%= link_to "Browse events", events_path, :class=> "browse_button" %></h1>
+  </div>
+  
 </div>
 
 <body>
@@ -56,9 +61,10 @@
 </body>
 
 <div class = 'footer'>
+
 <div class = 'item3'>
-  <h1>Toronto Events</h1>
-  <h3>The Central Online Information Hub for Events in the Toronto Community</h3>
+  <h1 class = 'title'>Toronto Events</h1>
+  <h3 class = 'title'>The Central Online Information Hub for Events in the Toronto Community</h3>
   <%= link_to "Browse events", events_path, :class=> "button" %>
 </div>
 
@@ -82,9 +88,9 @@
 
 <div class= 'item5'>
   <%= form_for :subscriber, url: subscribers_path do |f| %>
-    <%= f.label :Email, :class => 'bottomNavBarItem1' %>
+    <%= f.label :Email, :class => 'bottomNavBarItem' %>
     <%= f.email_field :Email %>
-    <%= f.submit "Sign up", :class => 'bottomNavBarItem1' %>
+    <%= f.submit "Sign up", :class => 'bottomNavBarItem sign_up' %>
     <% end %>
 </div>
 
