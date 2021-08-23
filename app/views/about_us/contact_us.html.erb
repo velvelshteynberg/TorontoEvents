@@ -1,4 +1,9 @@
-<%= form_for :subscriber, url: subscribers_path do |f| %>
+<% flash.each do |type, msg| %>
+    <div><%= msg %></div>
+<% end %>
+
+  <%= form_for :random_guys, url: about_us_contact_us_form_path do |f| %>
+    
     <div>
     <%= f.label :first_name%>
     <%= f.text_field :first_name %>

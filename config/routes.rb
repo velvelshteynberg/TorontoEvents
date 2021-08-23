@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "about_us#home"
   get 'about_us/about_us', to: 'about_us#about_us'
   get 'about_us/contact', to: 'about_us#contact_us'
+  post 'about_us/contact_us_form', to: 'about_us#contact_us_form'
   resources :events, only: [:index, :new, :show]
   resource :sessions, only: [:new, :delete]
   resources :users, only: [:new]
