@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root "about_us#home"
   get 'about_us/about_us', to: 'about_us#about_us'
   get 'about_us/contact', to: 'about_us#contact_us'
-  resources :events, only: [:index, :new, :show]
+  resources :events, only: [:index] do 
+    resources :admin_reviews, only: [:create, :update]
+    delete 'admin_reviews/destroy', to: 'admin_reviews#destroy'
+  end 
+  resources :events, only: [:new, :show]
   resource :sessions, only: [:new, :delete]
   resources :users, only: [:new]
   resources :subscribers, only: [:create]

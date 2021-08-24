@@ -1,0 +1,8 @@
+<% @events.each do |event| %>
+
+   <h1> <%= event.name %> </h1>
+   <%= link_to "Approve", event_admin_reviews_path(event) %>
+   <%= link_to "Require update", event_admin_review_path(event) %>
+   <%= link_to "Delete event",  event_admin_reviews_destroy_path(event) %>
+   
+<% end %>
