@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :delete]
   resources :users, only: [:new]
   resources :subscribers, only: [:create]
+  resources :events, only: [:index, :new]
 end
