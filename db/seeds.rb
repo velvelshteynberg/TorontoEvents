@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Event.delete_all
 event1 = Event.create(host_organization_id: 1, user_id: 2, name: 'The Final Countdown', description: 'This is the event to be at', is_approved: false, does_require_update: false)
+user = User.create(id: 2, email: 'velvelshteynberg@outlook.com', username: 'John Doe')
