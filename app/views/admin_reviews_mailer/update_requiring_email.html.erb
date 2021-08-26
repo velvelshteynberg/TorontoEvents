@@ -1,9 +1,14 @@
-Dear <%= @user.username %>
+<div><h2>Dear <%= @user.username %></h2></div>
 
-Update is required
-This is the explanation for the update. 
+<div>
+<p>We have reviewed the event that you submitted and we require you to make changes to your event. Specifically, we require you to edit the field mentioned in the bottom. </p>
+
+<p> Field required: <%= @event.update_required_explanation %> </p>
+</div>
 
 
 
-All the best, 
+
+All the best,
+<br> 
 Toronto Events

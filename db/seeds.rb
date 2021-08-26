@@ -8,5 +8,5 @@
 Event.delete_all
 User.delete_all
 event1 = Event.create(host_organization_id: 1, user_id: 100, name: 'The Final Countdown', description: 'This is the event to be at', is_approved: false, does_require_update: false)
-user = User.create(id: 100, username: "Greatness", email: 'velvelshteynberg@gmail.com')
-user.save
+user = User.create(id: 100, phone: '6466466466', password: 'greatness', is_subscribed: false, admin: false, username: "John Doe", email: 'velvelshteynberg@outlook.com')
+
