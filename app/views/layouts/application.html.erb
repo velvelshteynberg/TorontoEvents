@@ -61,17 +61,13 @@
 
 
 <div class = 'item7'>
-<%= image_tag("facebook.png", :class => 'icon') %>
-<%=image_tag("instagram.png", :class => 'icon')%>
-<%=image_tag("twitter.png", :class => 'icon')%>
+  <%= image_tag("facebook.png", :class => 'icon') %>
+  <%= image_tag("instagram.png", :class => 'icon')%>
+  <%= image_tag("twitter.png", :class => 'icon')%>
 </div>
 
 <div class = item3>
   <h3 class = 'title'>Toronto Events</h3>
-</div>
-
-<div class = 'icons'>
-<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </div>
 
 <div class = 'item4'>
@@ -92,12 +88,12 @@
   </nav>
 </div>
 
-<div class= 'item5'>
+<div class= 'item5 signupform'>
     <%= form_for :subscriber, url: subscribers_path do |f| %>
     <div class = 'signupform'>
-      <%= f.label :Email, :class => 'bottomNavBarItem ' %>
-      <%= f.email_field :Email %>
-      <%= f.submit "Sign up", :class => 'bottomNavBarItem sign_up' %>
+      <%= f.label :Email, :class => 'bottomNavBarItem item' %>
+      <%= f.email_field :Email, :class => 'item' %>
+      <%= f.submit "Sign up", :class => 'item' %>
     </div>
     <% end %>
 </div>
