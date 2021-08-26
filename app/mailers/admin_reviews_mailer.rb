@@ -11,8 +11,9 @@ class AdminReviewsMailer < ApplicationMailer
     mail(to: @user, subject: 'Event deletion')
   end
 
-  def update_requiring_email(client)
-    @user = client
-    mail(to: @user, subject: 'Update required')
+  def update_requiring_email(user)
+    @users = user 
+    @user = User.find_by(email: @users)
+    mail(to: @users, subject: 'Update required')
   end
 end

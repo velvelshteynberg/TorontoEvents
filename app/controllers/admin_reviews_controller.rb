@@ -3,6 +3,7 @@ class AdminReviewsController < ApplicationController
     def create
         @event = Event.find(params[:event_id])
         @event.is_approved = true 
+        @event.does_require_update = false
         @user = User.find(@event.user_id)
 
         if @event.save
@@ -29,6 +30,15 @@ class AdminReviewsController < ApplicationController
     end 
 
     def update
+        @event = Event.find(params[:event_id])
+        @event.does_require_update = true
+        @event.update_required_explanation = params[:event][:update_required_explanation]
+        @explanation = params[:event][:update_required_explanation]
+        @user = User.find(@event.user_id)
+        if @event.save
+            AdminReviewsMailer.update_requiring_email(@user.email).deliver_now
+        else 
+        end
     end 
 
 

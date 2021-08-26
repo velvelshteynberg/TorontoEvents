@@ -17,8 +17,8 @@
   <div>
     <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put do |f| %>
 
-      <%= f.label :explanation %>
-      <%= f.text_area :explanation %>
+      <%= f.label :update_required_explanation %>
+      <%= f.text_area :update_required_explanation %>
 
           <%= f.submit "Require event update" %> 
 
