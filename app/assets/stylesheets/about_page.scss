@@ -138,6 +138,9 @@ body {
 .item5 {
     grid-column: 10 / span 3;
     grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .signupform {
@@ -145,24 +148,16 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.item {margin: 3px;}
-
-.sign_up {
-    background-color: black;
-    padding: 3px;
+    
 }
 
 .item7 {
-    grid-column: 10 / span 1;
+    grid-column: 12;
     grid-row: 1; 
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    justify-content: flex-start;
+    justify-content: flex-end;
 }
 
 .icon { height: 15px; width: 15px; background-color: white; margin: 5px;}

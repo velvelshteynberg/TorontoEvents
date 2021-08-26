@@ -88,12 +88,12 @@
   </nav>
 </div>
 
-<div class= 'item5 signupform'>
+<div class= 'item5 '>
     <%= form_for :subscriber, url: subscribers_path do |f| %>
     <div class = 'signupform'>
-      <%= f.label :Email, :class => 'bottomNavBarItem item' %>
-      <%= f.email_field :Email, :class => 'item' %>
-      <%= f.submit "Sign up", :class => 'item' %>
+      <div><%= f.label :Email, :class => 'bottomNavBarItem item' %></div>
+      <div><%= f.email_field :Email, :class => 'item' %></div>
+      <div><%= f.submit "Sign up", :class => 'item item3' %></div>
     </div>
     <% end %>
 </div>
