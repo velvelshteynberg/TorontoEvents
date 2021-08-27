@@ -1,0 +1,26 @@
+<%= form_for @event, url: events_path, html: { method: :post } do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time %> 
+    
+    <%= f.label :end_time %>
+    <%= f.time_field :end_time %>
+
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.submit 'Submit event' %>
+
+<% end %>
