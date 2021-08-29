@@ -11,8 +11,8 @@ class AboutUsController < ApplicationController
     def contact_us_form
         @random_guy = RandomGuy.new(contact_us_form_params)
         if @random_guy.save
-            redirect_to about_us_contact_url
             flash[:notice] = 'Message succesfully sent'
+            redirect_to about_us_contact_url
         else
             flash[:notice] = "Please try again"
         end 
