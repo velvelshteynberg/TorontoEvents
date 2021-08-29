@@ -1,0 +1,2 @@
+class RandomGuy < ApplicationRecord
+end
