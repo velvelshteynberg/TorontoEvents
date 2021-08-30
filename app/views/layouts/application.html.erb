@@ -20,7 +20,7 @@
         <ul class = 'navBarUl'>
 
             <li>
-                <%= link_to "About Us", about_us_about_us_path, :class => "navBarItem" %>
+                <%= link_to "About Us", toronto_events_about_us_path, :class => "navBarItem" %>
             </li>
 
             <li>
@@ -28,15 +28,15 @@
             </li>
 
             <li>
-                <%= link_to "Contact us", about_us_contact_path , :class=> "navBarItem" %>
+                <%= link_to "Contact us", toronto_events_contact_path, :class=> "navBarItem" %>
             </li>
 
             <li>
-                <%= link_to "Sign in", new_session_path, :class=> "navBarItem" %>
+                <%= link_to "Sign in", "#", :class=> "navBarItem" %>
             </li>
 
             <li>
-                <%= link_to "Sign up", new_user_path, :class=> "navBarItem" %>
+                <%= link_to "Sign up", "#", :class=> "navBarItem" %>
             </li>
 
             <li>
@@ -85,10 +85,10 @@
         <%= link_to "Home", root_path, :class => 'bottomNavBarItem' %>
       </li>
        <li>
-        <%= link_to "About us", about_us_about_us_path, :class => 'bottomNavBarItem' %>
+        <%= link_to "About us", toronto_events_about_us_path, :class => 'bottomNavBarItem' %>
       </li>
       <li>
-        <%= link_to "Contact us", about_us_contact_path, :class => 'bottomNavBarItem' %>
+        <%= link_to "Contact us", toronto_events_contact_path, :class => 'bottomNavBarItem' %>
       </li>
     
     </ul>
