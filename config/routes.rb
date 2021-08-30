@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show]
 
   resources :subscribers, only: [:create]
+  resources :events, only: [:index, :new]
 end
