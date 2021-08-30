@@ -1,19 +1,6 @@
 class AdminReviewsController < ApplicationController
 
-    def create
-        @event = Event.find(params[:event_id])
-        @event.is_approved = true 
-        @event.does_require_update = false
-        @user = User.find(@event.user_id)
-
-        if @event.save
-            AdminReviewsMailer.approval_email(@user.email).deliver_now
-            flash[:notice] = 'Successfully approved'
-        else
-            flash[:notice] = 'Unable to approve'
-        end 
-
-    end 
+    
 
     def destroy
         @event = Event.find(params[:event_id])
@@ -27,6 +14,21 @@ class AdminReviewsController < ApplicationController
             flash[:notice] = 'Unable to delete'
         end 
             
+    end 
+
+    def create
+        @event = Event.find(params[:event_id])
+        @event.is_approved = true 
+        @event.does_require_update = false
+        @user = User.find(@event.user_id)
+
+        if @event.save
+            AdminReviewsMailer.approval_email(@user.email).deliver_now
+            flash[:notice] = 'Successfully approved'
+        else
+            flash[:notice] = 'Unable to approve'
+        end 
+
     end 
 
     def update
