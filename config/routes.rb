@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   post 'toronto_events/contact_us_form', to: 'about_us#contact_us_form'#, as: 'TorontoEvents_contact'
   resources :events, only: [:index, :show]
 
+  resources :searches, only: [:create] do 
+    resources :searches, only: [:index]
+  end 
+
   resources :subscribers, only: [:create]
   resources :events, only: [:index, :new]
 end

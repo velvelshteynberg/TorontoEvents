@@ -1,0 +1,29 @@
+<h4> Search for Event by  </h4>
+
+<%= form_for :events, url: searches_path,  method: :post do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :date %>
+    <%= f.date_field :start_date %>
+    <br>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <br>
+    <%= fields_for :host_organization do |f| %>
+
+        <%= f.label :host_organization %>
+        <%= f.text_field :name %>
+
+    <% end %>
+    <br>
+    <%= fields_for :caterers do |f| %>
+
+        <%= f.label :Caterer %>
+        <%= f.text_field :name %>
+
+    <% end %>
+    <br>
+    <%= f.submit 'Search' %>
+
+  <% end %>
