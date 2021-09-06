@@ -12,17 +12,14 @@ class Event < ApplicationRecord
             #if none are present then events.all
             #look into dynamic programming(the code writes itself as it executes) 
 
-            @conditions = conditions
-            p @conditions
-            @name = conditions[:names].to_s
-            p @name
+            @name = conditions[:names]
             @address = conditions[:address].to_s
             @start_date = conditions[:start_date].to_s
             @array = [@name, @address, @start_date]
             @new_array = @array.sort_by(&:length)
             p @new_array
             x = 0
-            if @name.length > 0 or @address.length > 0 or @start_date.length > 0
+            if conditions[:names].to_s.length > 0 or conditions[:address].to_s.length > 0 or conditions[:start_date].to_s.length > 0
 
                 @event = Event.search(@new_array[0]).search(@new_array[1]).search(@new_array[2])
 
