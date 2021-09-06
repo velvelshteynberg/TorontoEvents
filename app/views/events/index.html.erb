@@ -1,8 +1,7 @@
 <%= form_tag events_path, :method => 'get'  do %>
-    <%= text_field_tag :name %>
+    <%= text_field_tag :names %>
     <%= text_field_tag :address %>
     <%= date_field_tag :start_date %>
-    <%= text_field_tag :host_organization %>
     <%= submit_tag "Search" %>
 <% end %>
 
