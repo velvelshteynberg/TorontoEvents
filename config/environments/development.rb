@@ -60,5 +60,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.client_id = '640825717208-tvucjhtfivusp1f1e59521vpnr5krnil.apps.googleusercontent.com'
+
+  config.client_secret = 'fQ-NqAloR20maLxnH5YzhmU7'
+
   # config.action_mailer.default_url_options = { host: ‘localhost’, port: 3000 }
 end
