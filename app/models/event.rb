@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    scope :search, ->(term) { where(" #{conditions[:term]} LIKE ?", "% #{term} %" ) }
+    scope :search, ->(term1, term2) { where("#{term1} LIKE ?", "% #{term2} %" ) }
     scope :address, ->(address) { where("address LIKE ?", "% #{address} %" ) }
     scope :start_date, ->(start_date) { where("name LIKE ?", "% #{start_date} %" ) }
     #scope :host_organization, ->(host_organization) { where("name LIKE ?", "% #{host_organization} %" ) } 
@@ -12,18 +12,18 @@ class Event < ApplicationRecord
             #if none are present then events.all
             #look into dynamic programming(the code writes itself as it executes) 
 
-            @name = conditions[:names]
+            @name = conditions[:names].to_s
             @address = conditions[:address].to_s
             @start_date = conditions[:start_date].to_s
-            @array = [@name, @address, @start_date]
+            @array = [{name: @name}, {address: @address}, {start_date: @start_date}]
             @new_array = @array.sort_by(&:length)
-            p @new_array
             x = 0
-            if conditions[:names].to_s.length > 0 or conditions[:address].to_s.length > 0 or conditions[:start_date].to_s.length > 0
-
-                @event = Event.search(@new_array[0]).search(@new_array[1]).search(@new_array[2])
+            if @name or @address or @start_date
+                p 'if condition'
+                @event = Event.search( @new_array[0] ).search(@new_array[1]).search(@new_array[2])
 
             else 
+                p 'else condition'
                 @event = Event.all
             end 
 
