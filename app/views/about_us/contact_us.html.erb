@@ -1,0 +1,29 @@
+<% flash.each do |type, msg| %>
+    <div><%= msg %></div>
+<% end %>
+
+  <%= form_for :random_guys, url: toronto_events_contact_us_form_path do |f| %>
+    
+    <div>
+    <%= f.label :first_name%>
+    <%= f.text_field :first_name %>
+    </div>
+
+    <div>
+    <%= f.label :last_name%>
+    <%= f.text_field :last_name %>
+    </div>
+    
+    <div>
+    <%= f.label :email%>
+    <%= f.email_field :email %>
+    </div>
+
+    <div>
+    <%= f.label :message%>
+    <%= f.text_area :message %>
+    </div>
+
+    <%= f.submit "Submit"%>
+    
+    <% end %>
