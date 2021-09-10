@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'home/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "about_us#home"
+
+  root to: "home#index"
+  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   get 'toronto_events/about_us', to: 'about_us#about_us'
   get 'toronto_events/contact', to: 'about_us#contact_us'
 
@@ -9,4 +13,5 @@ Rails.application.routes.draw do
 
   resources :subscribers, only: [:create]
   resources :events, only: [:index, :new]
+
 end
