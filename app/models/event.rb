@@ -3,8 +3,10 @@ class Event < ApplicationRecord
     scope :address, ->(address) { where("address LIKE ?", "% #{address} %" ) }
     scope :start_date, ->(start_date) { where("name LIKE ?", "% #{start_date} %" ) }
     #scope :host_organization, ->(host_organization) { where("name LIKE ?", "% #{host_organization} %" ) } 
-    
     scope :eventname, ->(name) { where("name LIKE ?", "%#{name}%" ) if name}
+
+    scope :filtered, ->(query_params) { Event::Filter.new.filter(self, query_params) }
+
     def self.search(conditions)
         p conditions.reject! { |_k, v| v.blank? }
 
