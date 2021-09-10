@@ -10,6 +10,7 @@
       <script src="https://kit.fontawesome.com/a5ac8db979.js" crossorigin="anonymous"></script>
   </head>
 
+ <body>
   <div id = "top">
       <ul class = 'navBar'>
         <li>
@@ -34,12 +35,17 @@
       <div class = 'torontoEvents'>
         <h2> Toronto Events </h2>
       </div>
+
   </div>
 
 
-  <body>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+ 
       <%= yield %>
-  </body>
+
 
 
   <div class = 'footer'>
@@ -71,4 +77,5 @@
       </div>
         
   </div>
+  </body>
 </html>
