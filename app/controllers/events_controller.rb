@@ -17,6 +17,7 @@ class EventsController < ApplicationController
             redirect_to events_url
         else
             render :new
+        end
     end
 
     def edit
@@ -31,4 +32,5 @@ class EventsController < ApplicationController
     private
     def event_params
         params.require(:event).permit(:name, :start_date, :end_date, :start_time, :end_time, :address, :description)
+    end
 end
