@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete]
+
     def index
         @events = Event.all
     end
@@ -13,6 +16,7 @@ class EventsController < ApplicationController
 
     def create
         @event = Event.new(event_params)
+        @event.user = current_user
         if @event.save
             redirect_to events_url
         else
@@ -21,12 +25,22 @@ class EventsController < ApplicationController
     end
 
     def edit
+        @event = Event.find(params[:id])
     end
 
     def update
+        @event = Event.find(params[:id])
+        if @event.update_attributes(event_params)
+            redirect_to "/events/#{@event.id}"
+        else
+            render :edit
+        end
     end
 
     def destroy
+        @event = Event.find(params[:id])
+        @event.destroy
+        redirect_to events_url
     end
 
     private
