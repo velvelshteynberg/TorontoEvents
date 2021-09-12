@@ -14,7 +14,7 @@ class EventsController < ApplicationController
 
     private
     def query_params
-    query_params = params[:query]
+    query_params = params
     query_params ? query_params.permit(:name, :address, :start_date) : {}
     end
 
