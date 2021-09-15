@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   post 'toronto_events/contact_us_form', to: 'about_us#contact_us_form'#, as: 'TorontoEvents_contact'
   resources :events, only: [:index, :show]
 
+  get 'admin/hosts', to: 'admin#hosts'
+  get 'admin/events', to: 'admin#events'
+  get 'admin/caterers', to: 'admin#caterers'
+  
   resources :subscribers, only: [:create]
   resources :events, only: [:index, :new]
 

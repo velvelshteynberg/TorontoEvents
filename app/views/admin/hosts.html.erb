@@ -1,0 +1,12 @@
+<h1> Host organization </h1>
+
+<% @hosts.each do |event| %>
+    <ul>
+        <li> <%= event.name %> </li>
+        <li> <%= event.website %> </li>
+        <li> <%= event.email %> </li>        
+        <li> <%= event.mailing_address %> </li>
+        <li> <%= event.phone_number %> </li>
+        <li> <%= event.description %> </li>
+    </ul>
+<% end %>

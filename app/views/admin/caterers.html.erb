@@ -1,0 +1,10 @@
+<h1> Caterers </h1>
+
+<% @caterers.each do |caterer| %>
+        <p> Name:  <%= caterer.name %> </p> 
+        <p> Website: <%= caterer.website %> </p>
+        <p> Email: <%= caterer.email %> </p>
+        <p> Mailing Address: <%= caterer.mailing_address %> </p>
+        <p> Phone: <%= caterer.phone_number %> </p>
+        <p> Description: <%= caterer.description %> </p>
+<% end %>
