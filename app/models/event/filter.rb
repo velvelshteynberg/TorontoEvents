@@ -20,7 +20,7 @@ class Event::Filter
       if scope.present? 
         return scope
       else 
-        return @events.all
+        return Event.all
       end 
       
     end
