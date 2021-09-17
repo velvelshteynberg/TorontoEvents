@@ -8,7 +8,17 @@ class AdminController < ApplicationController
         @hosts = HostOrganization.all
     end 
 
+    def hosts_show
+        @host = HostOrganization.find(params[:id])
+    end
+
     def caterers
         @caterers = Caterer.all
     end 
+
+    def caterers_show
+        @caterer = Caterer.find(params[:id])
+    end 
+
+
 end

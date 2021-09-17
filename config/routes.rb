@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show]
 
   get 'admin/hosts', to: 'admin#hosts'
+  get 'admin/hosts_show'
   get 'admin/events', to: 'admin#events'
   get 'admin/caterers', to: 'admin#caterers'
+  get 'admin/caterers_show' 
+  
   
   resources :subscribers, only: [:create]
   resources :events, only: [:index, :new]
