@@ -9,4 +9,5 @@ class Event < ApplicationRecord
     inverse_of: :bookmarked_events
     belongs_to :user
     belongs_to :host_organization
+    belongs_to :caterer
 end
