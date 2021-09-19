@@ -14,30 +14,6 @@
    <p> <%= event.address %></p>
    <p> <%= event.description %></p>
    
-  <div>
-      <%= form_for event, url: event_admin_reviews_path(event), method: :post do |f| %>
-            <%= f.submit "Approve event" %> 
-      <% end %> 
-  </div>
-
-  <div>
-    <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put do |f| %>
-
-      <%= f.label :update_required_explanation %>
-      <%= f.text_area :update_required_explanation %>
-
-          <%= f.submit "Require event update" %> 
-
-    <% end %> 
-  </div>
-
-  <div>
-      <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete do |f| %>
-            <%= f.submit "Delete event" %> 
-      <% end %> 
-  </div>
-
-  
 
 <% end %>
 

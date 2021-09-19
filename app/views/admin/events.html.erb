@@ -12,5 +12,31 @@
         <li> <%= event.host_organization_id %> </li>
         <li> <%= event.end_time %> </li>
     </ul>
+
+    <div>
+        <%= form_for event, url: event_admin_reviews_path(event), method: :post do |f| %>
+            <%= f.submit "Approve event" %> 
+        <% end %> 
+    </div>
+
+    <div>
+    <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put do |f| %>
+
+        <%= f.label :update_required_explanation %>
+        <%= f.text_area :update_required_explanation %>
+
+            <%= f.submit "Require event update" %> 
+
+    <% end %> 
+    </div>
+
+    <div>
+        <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete do |f| %>
+            <%= f.submit "Delete event" %> 
+        <% end %> 
+    </div>
+
+
+
 <% end %>
 
