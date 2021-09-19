@@ -12,45 +12,66 @@
 
  <body>
  <% if current_user %>
+ <% if current_user.admin == false %>
   <div id = "top">
-      <ul class = 'navBar'>
-        <li>
-            <%= link_to "About Us", toronto_events_about_us_path, :class => "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Events", events_path, :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Contact us", toronto_events_contact_path, :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Sign in", "#", :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Sign up", "#", :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Create Event", new_event_path, :class=> "navBarItem" %>
-        </li>
-      </ul>
-      <div class = 'torontoEvents'>
-        <h2> Toronto Events </h2>
-      </div>
-  </div>
-  <% else %>
-  <div >
-        <ul>
+        <ul class = 'navBar'>
           <li>
-              <%= link_to "Pending Events", admin_events_path, :class => 'item' %>
+              <%= link_to "About Us", toronto_events_about_us_path, :class => "navBarItem" %>
           </li>
           <li>
-              <%= link_to "Host Organization's", admin_hosts_path, :class => 'item' %>
+              <%= link_to "Events", events_path, :class=> "navBarItem" %>
           </li>
           <li>
-              <%= link_to "Caterers", admin_caterers_path, :class => 'item' %>
+              <%= link_to "Contact us", toronto_events_contact_path, :class=> "navBarItem" %>
+          </li>
+          <li>
+              <%= link_to "Sign in", "#", :class=> "navBarItem" %>
+          </li>
+          <li>
+              <%= link_to "Sign up", "#", :class=> "navBarItem" %>
+          </li>
+          <li>
+              <%= link_to "Create Event", new_event_path, :class=> "navBarItem" %>
           </li>
         </ul>
-
+    </div>
+    <% elsif current_user.admin %>
+    <div >
+      <ul>
+        <li>
+            <%= link_to "Pending Events", admin_events_path, :class => 'item' %>
+        </li>
+        <li>
+            <%= link_to "Host Organization's", admin_hosts_path, :class => 'item' %>
+        </li>
+        <li>
+            <%= link_to "Caterers", admin_caterers_path, :class => 'item' %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+  <% else %>
+  <div id = "top">
+    <ul class = 'navBar'>
+      <li>
+          <%= link_to "About Us", toronto_events_about_us_path, :class => "navBarItem" %>
+      </li>
+      <li>
+          <%= link_to "Events", events_path, :class=> "navBarItem" %>
+      </li>
+      <li>
+          <%= link_to "Contact us", toronto_events_contact_path, :class=> "navBarItem" %>
+      </li>
+      <li>
+          <%= link_to "Sign in", "#", :class=> "navBarItem" %>
+      </li>
+      <li>
+          <%= link_to "Sign up", "#", :class=> "navBarItem" %>
+      </li>
+      <li>
+          <%= link_to "Create Event", new_event_path, :class=> "navBarItem" %>
+      </li>
+    </ul>
   </div>
 <% end %>
 

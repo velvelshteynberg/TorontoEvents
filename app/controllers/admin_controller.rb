@@ -7,6 +7,7 @@ class AdminController < ApplicationController
 
     def hosts
         @hosts = HostOrganization.all
+        @host = HostOrganization.new
     end 
 
     def hosts_show

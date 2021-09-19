@@ -5,3 +5,7 @@
         <li> <u> <%= link_to "#{event.name}" , admin_hosts_show_path(id: event.id),  :class => 'item'  %> </u> </li> 
     </ul>
 <% end %>
+
+<%= form_for @host, :url => host_organization_path(@host) do |f| %>
+    <%= f.submit 'Create organiation' %>
+<% end %>
