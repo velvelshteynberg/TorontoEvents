@@ -1,1 +1,34 @@
-contact us
+<% flash.each do |type, msg| %>
+    <div><%= msg %></div>
+<% end %>
+
+
+<div class="form">
+<div class="contanct_us"> Contact Us </div>
+<p class="contact_statement"> Question, comment, or suggestion?  Fill out the form below, and we will try to get back to you as soon as possible. </p>
+
+<%= form_for :random_guys, url: toronto_events_contact_us_form_path do |f| %>
+    
+    <div class="formField">
+    <%= f.label :first_name, :class => 'form_label'%>
+    <%= f.text_field :first_name %>
+    </div>
+
+    <div class="formField">
+    <%= f.label :last_name, :class => 'form_label'%>
+    <%= f.text_field :last_name %>
+    </div>
+    
+    <div class="formField">
+    <%= f.label :email, :class => 'form_label'%>
+    <%= f.email_field :email %>
+    </div>
+
+    <div class="formField">
+    <%= f.label :message, :class => 'form_label'%>
+    <%= f.text_area :message %>
+    </div>
+
+    <%= f.submit "Submit"%>
+</div>
+    <% end %>

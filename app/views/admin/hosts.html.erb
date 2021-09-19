@@ -1,0 +1,7 @@
+<h1> Host organization </h1>
+
+<% @hosts.each do |event| %>
+    <ul>
+        <li> <u> <%= link_to "#{event.name}" , admin_hosts_show_path(id: event.id),  :class => 'item'  %> </u> </li> 
+    </ul>
+<% end %>

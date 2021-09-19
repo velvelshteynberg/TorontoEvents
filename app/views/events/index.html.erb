@@ -1,3 +1,5 @@
+
+                             <h1>EVENTS!!</h1>
 <% flash.each do |type, msg| %>
    <div>
      <%= msg %>
@@ -6,7 +8,11 @@
 
  <% @events.each do |event| %>
 
-   <h1> <%= event.name %> </h1>
+   <p> <%= event.name %> </p>
+   <p> <%= event.start_date %> - <%= event.end_date %></p>
+   <p> <%= event.start_time %> - <%= event.end_time %></p>
+   <p> <%= event.address %></p>
+   <p> <%= event.description %></p>
    
   <div>
       <%= form_for event, url: event_admin_reviews_path(event), method: :post do |f| %>
@@ -34,3 +40,4 @@
   
 
 <% end %>
+

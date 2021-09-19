@@ -1,0 +1,13 @@
+<h1> Host organization </h1>
+
+
+    
+         <p> Name: <%= @host.name %> </p>
+         <p> Website URL: <u> <%= @host.website %> </u> </p>
+         <p> Email: <%= @host.email %> </p>    
+         <p> Mailing address: <%= @host.mailing_address %> </p>
+         <p> Phone number: <%= @host.phone_number %> </p>
+         <p> Description: <%= @host.description %> </p> 
+
+
+<p> Return to <u> <%= link_to ' All Hosts', admin_hosts_path, :class => 'item' %> </u> </p>
