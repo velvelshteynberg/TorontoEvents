@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   post 'toronto_events/contact_us_form', to: 'about_us#contact_us_form'#, as: 'TorontoEvents_contact'
   resources :events, only: [:index, :show]
+  
+   resources :events, only: [:show] do 
+    resources :admin_reviews, only: [:create, :update]
+    delete 'admin_reviews/destroy', to: 'admin_reviews#destroy'
+    patch 'admin_reviews/patch', to: 'admin_reviews#update'
+  end 
 
   get 'admin/hosts', to: 'admin#hosts'
   get 'admin/hosts_show'

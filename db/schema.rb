@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_005352) do
     t.boolean "does_require_update"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "update_required_explanation"
   end
 
   create_table "host_organizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -83,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_09_01_005352) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   create_table "random_guys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(version: 2021_09_01_005352) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
 
   create_table "subscribers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email"
