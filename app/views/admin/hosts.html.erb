@@ -6,6 +6,11 @@
     </ul>
 <% end %>
 
-<%= form_for @host, :url => host_organization_path(@host) do |f| %>
+<%= form_for @host do |f| %>
+
+    <%= f.label 'Name' %>
+    <%= f.text_field 'name' %>
+    
     <%= f.submit 'Create organiation' %>
+
 <% end %>

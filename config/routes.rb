@@ -26,5 +26,5 @@ Rails.application.routes.draw do
   
   resources :subscribers, only: [:create]
   resources :events, only: [:index, :new]
-
+  resources :host_organizations, only: [:create]
 end
