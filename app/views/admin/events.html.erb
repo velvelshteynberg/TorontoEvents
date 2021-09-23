@@ -14,13 +14,13 @@
     </ul>
 
     <div>
-        <%= form_for event, url: event_admin_reviews_path(event), method: :post do |f| %>
+        <%= form_for event, url: event_admin_reviews_path(event), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
             <%= f.submit "Approve event" %> 
         <% end %> 
     </div>
 
     <div>
-    <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put do |f| %>
+    <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require an update?'} do |f| %>
 
         <%= f.label :update_required_explanation %>
         <%= f.text_area :update_required_explanation %>
@@ -31,7 +31,7 @@
     </div>
 
     <div>
-        <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete do |f| %>
+        <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
             <%= f.submit "Delete event" %> 
         <% end %> 
     </div>
