@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
         // top.style.color = "blue";
         console.log("hi");
     } else {
-        top.style.height = "120px";
+        // top.style.height = "120px";
         console.log("else")
     }        
 

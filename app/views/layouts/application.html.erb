@@ -12,69 +12,83 @@
 
  <body>
   <div id = "top">
-      <ul class = 'navBar'>
-        <li>
-            <%= link_to "About Us", toronto_events_about_us_path, :class => "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Events", events_path, :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Contact us", toronto_events_contact_path, :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Sign in", "#", :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Sign up", "#", :class=> "navBarItem" %>
-        </li>
-        <li>
-            <%= link_to "Create Event", new_event_path, :class=> "navBarItem" %>
-        </li>
-      </ul>
-      <div class = 'torontoEvents'>
-        <h2> Toronto Events </h2>
+    <div id="top_background_img">
+      <%= image_tag("bg-pattern-intro.svg") %>
+    </div>
+    <div class = 'torontoEvents'>
+      <p> Toronto Events </p>
+    </div>
+    <ul class = 'leftnav'>
+      <li>
+          <%= link_to "Events", events_path %>
+      </li>
+      <li>
+          <%= link_to "Create Event", new_event_path %>
+      </li>
+      <li>
+          <%= link_to "Contact us", toronto_events_contact_path %>
+      </li>
+    </ul>
+    <ul class="rightnav">
+      <li>
+      <%= link_to "Sign up", new_user_registration_path, :class=> "signup" %>
+      </li>
+      <li>
+          <%= link_to "Login", new_user_session_path, :class=> "login" %>
+      </li>
+    </ul>
+    <div id="slogans"> 
+      <div id="topHeadline">
+        Explore and Construct
       </div>
-
+      <p id="topSubline"> 
+        Take part in upcoming events, or generate your own to share
+      </p>
+    </div>  
+    <div id="topEventsButtons">
+      <%= link_to "Browse Events", events_path, :id=>'topBrowseEventsButton'%>
+      <%= link_to "Create Event", new_event_path, :id=>'topCreateEventButton' %>
+    </div>
   </div>
 
 
-
+<div class="mainContainer">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
  
-      <%= yield %>
+  <%= yield %>
+</div>
 
 
-
-  <div class = 'footer'>
-      <div class = 'footerIcons'>
-        <%= image_tag("facebook.png", :class => 'icon') %>
-        <%= image_tag("instagram.png", :class => 'icon')%>
-        <%= image_tag("twitter.png", :class => 'icon')%>
-        <%= image_tag("pintrest.png", :class => 'icon')%>
-      </div>
-      <h3 class = 'title'>Toronto Events</h3>
-      <ul class = 'navBarUl bottom'>
-        <li>
-          <%= link_to "Home", root_path, :class => 'bottomNavBarItem' %>
-        </li>
-        <li>
-          <%= link_to "About us", toronto_events_about_us_path, :class => 'bottomNavBarItem' %>
-        </li>
-        <li>
-          <%= link_to "Contact us", toronto_events_contact_path, :class => 'bottomNavBarItem' %>
-        </li>
-      </ul>
+  <div class = 'bottom'>
+      <div class = 'bottomIcons'>
+        <%= image_tag("Copyright.png", :class => 'icon')%> TorontoEvents2021
       
-      <div class= 'signupform'>
-        <h4> Subscribe to our emails </h4>
+      </div>
+
+      <div class= 'subscribe'>
+        <p class="subscribe_text"> Get email updates on the latest upcoming events! </p>
         <%= form_for :subscriber, url: subscribers_path do |f| %>
-          <%= f.email_field :Email, placeholder: "email@example.com", :class => 'item' %>
-          <%= f.submit "Subscribe", :class => 'item  item3' %>
+          <%= f.email_field :Email, placeholder: "email@example.com", :class => 'emailforsubscribe' %>
+          <%= f.submit "Subscribe", :class => 'subscribeButton' %>
         <% end %>
       </div>
+
+      <div class = 'bottomNav'>
+        <ul>
+          <li>
+            <%= link_to "Home", root_path, :class => 'bottomNavBarItem' %>
+          </li>
+          <li>
+            <%= link_to "About us", toronto_events_about_us_path, :class => 'bottomNavBarItem' %>
+          </li>
+          <li>
+            <%= link_to "Contact us", toronto_events_contact_path, :class => 'bottomNavBarItem' %>
+          </li>
+        </ul>
+      </div>
+      
         
   </div>
   </body>

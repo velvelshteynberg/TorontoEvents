@@ -1,0 +1,133 @@
+#top {   
+    width: 100%;
+    border-bottom-right-radius: 60px;
+    z-index: -1;
+    // display: grid;
+    // grid-template-columns: 1fr 2fr 1fr;
+    // grid-template-rows: repeat(7, 1fr);
+    // grid-template-areas: "torontoEvents navbar navbar space space signup login"
+    //                      "space space slogans slogans slogans space space"
+    //                      "space space space buttons space space space";
+}
+
+#top_background_img {
+    z-index: -1;
+    border-bottom-right-radius: 60px;
+    max-height: 1816px;
+    margin-top: -1359px;
+    width: 100%;
+    text-indent: -577px;
+    overflow: hidden;
+    background: radial-gradient(rgb(255, 61, 84),hsl(13, 100%, 72%));
+}
+
+#top li {
+    display: inline;
+    margin-left: 4%;
+}    
+
+a {
+    text-decoration: none;
+    color:white;
+    font-family: 'Montserrat';
+    font-size: 20px;
+}    
+
+.torontoEvents {
+    font-family: "KleeOne";
+    z-index: 1;
+    color: white;
+    // width: 0px;
+    position: absolute;
+    // left: 12%;
+    // top: 20px;
+    left: 3%;
+    top: 3%;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.leftnav {
+    z-index: 1;
+    position: absolute;
+    left: 20%;
+    top: 5%;
+    width: 40%;
+}
+
+.rightnav {
+    z-index: 1;
+    position: absolute;
+    top: 5.5%;
+    right: -.5%;
+    width: 25%;
+}    
+
+.login {
+    color: rgb(255, 61, 84);
+    font-weight: bold;
+    background-color: white;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+#slogans {
+
+}
+
+#topHeadline {
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    font-family: "KleeOne";
+    color:white;
+    font-size: 350%;
+    // margin: auto;
+    width: fit-content;
+}
+
+#topSubline {
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 32%;
+    font-family: "Montserrat";
+    color:white;
+    font-size: 130%;
+    font-stretch: ultra-expanded;
+    min-width: fit-content;
+}
+
+#topEventsButtons {
+    position: absolute;
+    top: 48%;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+}
+
+#topBrowseEventsButton {
+    color: rgb(255, 61, 84);
+    font-size: 100%;
+    font-weight: bolder;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 30px;
+    padding: 12px;
+}
+
+#topCreateEventButton {
+    font-size: 100%;
+    color: white;
+    padding: 12px;
+    border-radius: 30px;
+    border: solid 2px white;
+    width: fit-content;
+    height: fit-content;
+}
+
