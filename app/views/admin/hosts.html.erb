@@ -4,13 +4,28 @@
     <ul>
         <li> <u> <%= link_to "#{event.name}" , admin_hosts_show_path(id: event.id),  :class => 'item'  %> </u> </li> 
     </ul>
-<% end %>
+<% end %>   
 
-<%= form_for @host do |f| %>
+<%= form_for(@host, :url => host_organizations_path) do |f| %>
 
     <%= f.label 'Name' %>
     <%= f.text_field 'name' %>
-    
-    <%= f.submit 'Create organiation' %>
+    <BR>
+    <%= f.label 'Website URL' %>
+    <%= f.text_field 'website' %>
+    <BR>
+    <%= f.label 'Email address' %>
+    <%= f.email_field 'email' %>
+    <BR>
+    <%= f.label 'Mailing address' %>
+    <%= f.text_field 'mailing_address' %>
+    <BR>
+    <%= f.label 'Phone' %>
+    <%= f.text_field 'phone_number' %>
+    <BR>
+    <%= f.label 'Brief Description of Organizations' %>
+    <%= f.text_area 'description' %>
+    <BR>
+    <%= f.submit 'Create organization' %>
 
 <% end %>

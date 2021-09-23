@@ -16,6 +16,7 @@ class AdminController < ApplicationController
 
     def caterers
         @caterers = Caterer.all
+        @caterer = Caterer.new
     end 
 
     def caterers_show

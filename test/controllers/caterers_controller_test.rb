@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HostOrganizationControllerTest < ActionDispatch::IntegrationTest
+class CaterersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

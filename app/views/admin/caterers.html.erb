@@ -1,5 +1,31 @@
 <h1> Caterers </h1>
 
 <% @caterers.each do |caterer| %>
+        <ul>
         <li> <u> <%= link_to "#{caterer.name}" ,  admin_caterers_show_path(id: caterer.id),  :class => 'item'  %> </u> </li> 
+        </ul>
 <% end %>
+
+<%= form_for(@caterer, :url => caterers_path) do |f| %>
+
+        <%= f.label 'Name' %>
+        <%= f.text_field 'name' %>
+        <BR>
+        <%= f.label 'Website URL' %>
+        <%= f.text_field 'website' %>
+        <BR>
+        <%= f.label 'Email address' %>
+        <%= f.email_field 'email' %>
+        <BR>
+        <%= f.label 'Mailing address' %>
+        <%= f.text_field 'mailing_address' %>
+        <BR>
+        <%= f.label 'Phone' %>
+        <%= f.text_field 'phone_number' %>
+        <BR>
+        <%= f.label 'Description' %>
+        <%= f.text_area 'description' %>
+        <BR>
+        <%= f.submit 'Create caterer' %>
+    
+    <% end %>
