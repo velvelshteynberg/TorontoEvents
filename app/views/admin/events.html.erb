@@ -1,6 +1,6 @@
 <%= javascript_pack_tag 'update-form' %>
-
-<h1> Events Pending Approval </h1>
+<div class = 'div' >
+<div><h1> Events Pending Approval </h1></div>
 
 
 
@@ -9,18 +9,20 @@
     <ul>
         <li> <%= event.name %> </li>
         <li> <%= event.address %> </li>
-        <li> <%= event.description %> </li>
+        <div><li> <%= event.description %> </li></div>
         <li> <%= event.start_date %> </li>
         <li> <%= event.end_date %> </li>
         <li> <%= event.start_time %> </li>
         <li> <%= event.end_time %> </li>
         <li> <%= event.host_organization_id %> </li>
         <li> <%= event.end_time %> </li>
-        <li>
-                <% if event.does_require_update %>
-            Update required explanation:  <%= event.update_required_explanation %> 
-                <% end %>
-        </li>
+        <div>
+            <li>
+                    <% if event.does_require_update %>
+                <h4> Update required explanation:  <%= event.update_required_explanation %> </h4>
+                    <% end %>
+            </li>
+        </div>
     
 
         <li>
@@ -62,3 +64,4 @@
 
 <% end %>
 
+</div>
