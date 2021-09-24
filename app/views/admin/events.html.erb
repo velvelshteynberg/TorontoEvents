@@ -1,6 +1,11 @@
+<%= javascript_pack_tag 'update-form' %>
+
 <h1> Events Pending Approval </h1>
 
+
+
 <% @events.each do |event| %>
+    <div class = 'body'>
     <ul>
         <li> <%= event.name %> </li>
         <li> <%= event.address %> </li>
@@ -26,26 +31,23 @@
 
     
             <% if event.does_require_update  %> 
+            <button type="button"  disabled >Require update</button>
+            
 
-            <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require an update?'} do |f| %>
+            <% elsif event.does_require_update == false %> 
+                
+                <button type="button" id = 'update-button'>Require update</button>
 
-                <%= f.label :update_required_explanation %>
-                <%= f.text_area :update_required_explanation, value: nil %>
+                <div class = 'update-form'>
+                    <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require an update?'} do |f| %>
 
-                <%= f.submit "Require event update", disabled: true%> 
+                    <%= f.label :update_required_explanation %>
+                    <%= f.text_area :update_required_explanation %>
+                    <%= f.submit "Require event update", :class => 'submit-button' %> 
 
-                <% end %> 
+                    <% end %> 
 
-            <% else %> 
-
-                <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require an update?'} do |f| %>
-
-                <%= f.label :update_required_explanation %>
-                <%= f.text_area :update_required_explanation %>
-
-                <%= f.submit "Require event update" %> 
-
-                <% end %> 
+                </div>
             <% end %> 
     
 
@@ -56,8 +58,7 @@
         </li>
 
     </ul>
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
 
 <% end %>
 
