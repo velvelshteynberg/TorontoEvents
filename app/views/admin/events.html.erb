@@ -11,32 +11,53 @@
         <li> <%= event.end_time %> </li>
         <li> <%= event.host_organization_id %> </li>
         <li> <%= event.end_time %> </li>
+        <li>
+                <% if event.does_require_update %>
+            Update required explanation:  <%= event.update_required_explanation %> 
+                <% end %>
+        </li>
+    
+
+        <li>
+            <%= form_for event, url: event_admin_reviews_path(event), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
+                <%= f.submit "Approve event" %> 
+            <% end %> 
+        </li>
+
+    
+            <% if event.does_require_update  %> 
+
+            <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require an update?'} do |f| %>
+
+                <%= f.label :update_required_explanation %>
+                <%= f.text_area :update_required_explanation, value: nil %>
+
+                <%= f.submit "Require event update", disabled: true%> 
+
+                <% end %> 
+
+            <% else %> 
+
+                <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require an update?'} do |f| %>
+
+                <%= f.label :update_required_explanation %>
+                <%= f.text_area :update_required_explanation %>
+
+                <%= f.submit "Require event update" %> 
+
+                <% end %> 
+            <% end %> 
+    
+
+        <li>
+            <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
+                <%= f.submit "Delete event" %> 
+            <% end %> 
+        </li>
+
     </ul>
 
-    <div>
-        <%= form_for event, url: event_admin_reviews_path(event), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
-            <%= f.submit "Approve event" %> 
-        <% end %> 
-    </div>
-
-    <div>
-    <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require an update?'} do |f| %>
-
-        <%= f.label :update_required_explanation %>
-        <%= f.text_area :update_required_explanation %>
-
-            <%= f.submit "Require event update" %> 
-
-    <% end %> 
-    </div>
-
-    <div>
-        <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
-            <%= f.submit "Delete event" %> 
-        <% end %> 
-    </div>
-
-
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <% end %>
 
