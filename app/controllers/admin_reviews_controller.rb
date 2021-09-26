@@ -33,6 +33,7 @@ class AdminReviewsController < ApplicationController
 
     def update
         @event = Event.find(params[:event_id])
+        @event.is_approved = false
         @event.does_require_update = true
         @event.update_required_explanation = params[:event][:update_required_explanation]
         @explanation = params[:event][:update_required_explanation]
