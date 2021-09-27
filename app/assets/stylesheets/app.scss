@@ -1,18 +1,22 @@
 .mainContainer {
     width: 1080px;
-    margin: 100px;
+    margin: 100px auto;
+    min-height: 450px;
 }
 
 html, body {
     height: 100%;
-    margin: 0;
+    margin: auto;
     overflow-x: hidden;
     font-family: 'Montserrat';
 }
 
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin: auto;
     padding: 0;
 }
 
+#yield {
+    min-height: 2680px;
+}

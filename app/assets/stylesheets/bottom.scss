@@ -9,44 +9,66 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.bottomIcons {
+    .copyrightLogo {
     color: white;
     font-size: large;
     font-family: "Montserrat";
-}
-
-.icon {
-    width: 24px;
-}
-
-.subscribe {
+        .icon {
+            width: 22px;
+        }
+        p {   
+            span {
+                vertical-align: top;
+            }
+        }
+    }
+    .subscribe {
     text-align: center;
     color: white;
     font-family: 'Montserrat';
     font-size: large;
+        .subscribe_text {
+        margin: 15px;
+        }
+        .emailforsubscribe {
+        height: 40px;
+        width: 220px;
+        text-align: center;
+        font-size:large;
+        border-radius: 14px;
+        }
+        .emailforsubscribe:focus {
+            outline: none;
+            box-shadow: 0 0 3px 3px white;
+        }
+        .subscribeButton {
+        font-size: large;
+        border-radius: 30px;
+        padding: 14px;
+        margin-left: 7px; 
+        }
+        .subscribeButton:hover {
+            cursor: pointer;
+            background-color: rgb(231, 94, 94);
+        }
+    }
+    .bottomNav ul {
+        list-style-type: none;      
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+        }
+    }
 }
 
-.subscribe_text {
-    margin: 15px;
-}
 
-.emailforsubscribe {
-    height: 40px;
-    width: 220px;
-    text-align: center;
-    font-size:large;
-    border-radius: 10px;
-}
 
-.subscribeButton {
-    font-size: large;
-    border-radius: 10px;
-    padding: 10px;
-    margin-left: 7px; 
-}
 
-.bottomNav ul {
-    list-style-type: none;
-}
+
+
+
+
+
+
+

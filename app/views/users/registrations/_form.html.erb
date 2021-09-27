@@ -28,16 +28,19 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form_box' %>
     </div>
-  
-    <div class="custom-control custom-switch">
-      <%= f.check_box :is_subscribed %>
-      <%= f.label :subscribe %>
+   
+    <div class="field toggle_label">
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"> </span>  
+      </label>
+    Subscribe 
     </div>
-  
     <div class="actions">
       <%= f.submit "Sign up", class: 'submit' %>
     </div>
   <% end %>
   
+  <div class="users_shared_links">
   <%= render "users/shared/links" %>
-  
+  </div>

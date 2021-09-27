@@ -11,43 +11,52 @@
   </head>
 
  <body>
-  <div id = "top">
-    <div id="top_background_img">
-      <%= image_tag("bg-pattern-intro.svg") %>
-    </div>
-    <div class = 'torontoEvents'>
-      <p> Toronto Events </p>
-    </div>
-    <ul class = 'leftnav'>
-      <li>
-          <%= link_to "Events", events_path %>
-      </li>
-      <li>
-          <%= link_to "Create Event", new_event_path %>
-      </li>
-      <li>
-          <%= link_to "Contact us", toronto_events_contact_path %>
-      </li>
-    </ul>
-    <ul class="rightnav">
-      <li>
-      <%= link_to "Sign up", new_user_registration_path, :class=> "signup" %>
-      </li>
-      <li>
-          <%= link_to "Login", new_user_session_path, :class=> "login" %>
-      </li>
-    </ul>
-    <div id="slogans"> 
-      <div id="topHeadline">
-        Explore and Construct
+  <div class="app_header">
+    <div class="app_nav">
+      <div class="app_logo">
+        <h2>Toronto Events</h2>      
       </div>
-      <p id="topSubline"> 
-        Take part in upcoming events, or generate your own to share
-      </p>
-    </div>  
-    <div id="topEventsButtons">
-      <%= link_to "Browse Events", events_path, :id=>'topBrowseEventsButton'%>
-      <%= link_to "Create Event", new_event_path, :id=>'topCreateEventButton' %>
+      <div class="app_nav_menu">
+        <ul>
+          <li>
+              <%= link_to "Events", events_path %>
+          </li>
+          <li>
+              <%= link_to "Create Event", new_event_path %>
+          </li>
+          <li>
+              <%= link_to "Contact us", toronto_events_contact_path %>
+          </li>
+        </ul>
+      </div>
+      <div class="app_login_options">
+        <ul>
+          <li>
+          <%= link_to "Sign up", new_user_registration_path, :class=> "signup" %>
+          </li>
+          <li>
+              <%= link_to "Login", new_user_session_path, :class=> "login" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app_header_main">
+      <div>
+        <p class="topHeadline">
+          Explore and Construct
+        </p>
+        <p class="topSubline"> 
+          Take part in upcoming events, or generate your own to share
+        </p>
+      </div> 
+    </div>
+
+    <div class="app_header_bottom">
+      <div id="topEventsButtons">
+        <%= link_to "Browse Events", events_path, :class=>'topBrowseEventsButton'%>
+        <%= link_to "Create Event", new_event_path, :class=>'topCreateEventButton' %>
+      </div>
     </div>
   </div>
 
@@ -56,15 +65,14 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
- 
   <%= yield %>
+
 </div>
 
 
   <div class = 'bottom'>
-      <div class = 'bottomIcons'>
-        <%= image_tag("Copyright.png", :class => 'icon')%> TorontoEvents2021
-      
+      <div class = 'copyrightLogo'>
+       <p> <%= image_tag("Copyright.png", :class => 'icon')%> <span>TorontoEvents2021</span></p>  
       </div>
 
       <div class= 'subscribe'>
