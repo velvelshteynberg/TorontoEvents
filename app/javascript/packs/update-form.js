@@ -4,8 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById("update-button").addEventListener('click', () => {
         document.querySelector(".update-form").style.display = 'flex';
-        document.querySelector(".body").style.background = 'rgba(0,0,0,0.7)';
-
+        document.body.style.backgroundColor = 'grey';
         document.querySelector('.submit-button').addEventListener('click', () =>{
         document.querySelector(".update-form").style.display = 'none';
         })

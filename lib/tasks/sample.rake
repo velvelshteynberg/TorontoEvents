@@ -3,20 +3,16 @@ require 'active_support/core_ext'
 task :delete => :environment do
   @events = Event.where(does_require_update: true)
     @events.each do |event|
-      if event.start_date < DateTime.now.to_date
-            event.destroy
-            if DateTime.now >= event.update_required_timestamp + 3.days  
-              event.destroy
-            else
-              puts 'It hasnt been three days yet'
-            end 
+      if event.start_date < DateTime.now.to_date or DateTime.now >= event.update_required_timestamp + 3.days  
+            event.destroy 
       else 
-        puts 'start date hasnt passed'
+        puts 'start date has not passed and it has not been 3 days since update was required'
       end 
-    end 
-end 
+    end  
+    puts 'succesfully deleted events'
+  end 
 
 task :great do 
-  puts Event.all
+  puts "Great day after all"
 end 
 

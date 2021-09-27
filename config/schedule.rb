@@ -20,6 +20,6 @@
 # Learn more: http://github.com/javan/whenever
 set :environment, "development"
 
-every 30.minute do
-    rake 'sample:print'
+every 1.day at: '1 am' do
+    rake 'delete'
 end
