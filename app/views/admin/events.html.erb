@@ -29,7 +29,7 @@
             <button type="button"  disabled >Require update</button>
             <% elsif event.does_require_update == false %> 
                 
-                <button type="button" id = 'update-button'>Require update</button>
+                <form><button type="button" id='update-button'>Require update</button></form>
 
                 <span class = 'span'><div class = 'update-form'>
                     <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require this update?'}, :html => { :class => 'update_form' } do |f| %>
