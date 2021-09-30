@@ -6,25 +6,33 @@
         </ul>
 <% end %>
 
+
+<h2> Create Caterer </h2>
 <%= form_for(@caterer, :url => caterers_path) do |f| %>
 
         <%= f.label 'Name' %>
+        <br>
         <%= f.text_field 'name' %>
         <BR>
         <%= f.label 'Website URL' %>
+        <br>
         <%= f.text_field 'website' %>
         <BR>
         <%= f.label 'Email address' %>
+        <br>
         <%= f.email_field 'email' %>
         <BR>
         <%= f.label 'Mailing address' %>
+        <br>
         <%= f.text_field 'mailing_address' %>
         <BR>
         <%= f.label 'Phone' %>
+        <br>
         <%= f.text_field 'phone_number' %>
         <BR>
         <%= f.label 'Description' %>
-        <%= f.text_area 'description' %>
+        <br>
+        <%= f.text_area 'description', size: "35x8" %>
         <BR>
         <%= f.submit 'Create caterer' %>
     

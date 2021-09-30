@@ -1,53 +1,64 @@
 <%= javascript_pack_tag 'update-form' %>
-<div></div>
 <h1> Events Pending Approval </h1>
-<div> </div>
 
+
+<table style="width:100%" >
+
+<thead>
+<tr style = 'height:40px'>
+    <th style="width:15%"> Event name </th>
+    <th style="width:15%"> Approve event </th>
+    <th style="width:15%"> Delete event </th>
+    <th style="width:15%"> Require update </th>
+    <th style="width:40%"> Update required explanation </th>
+</tr>
+</thead>
+
+<tbody>
 <% @events.each do |event| %>
-    <ul class = 'ul'>
-        <li> <%= event.name %> </li>
-        <li> <%= event.address %> </li>
-        <li> <%= event.description %> </li>
-        <li> <%= event.start_date %> </li>
-        <li> <%= event.end_date %> </li>
-        <li> <%= event.start_time %> </li>
-        <li> <%= event.end_time %> </li>
-        <li> <%= event.host_organization_id %> </li>
-        <li> <%= event.end_time %> </li>
-        <li>
-                <% if event.does_require_update %>
-               <h4> Update required explanation:  <%= event.update_required_explanation %> </h4>
-                <% end %>
-        </li>
-        <li>
+    <tr style = 'height: auto'>
+        <td> <u> <%= link_to "#{event.name}", admin_events_show_path(id: event.id),  :class => 'item' %> </u> </td>
+       
+        <td>
             <%= form_for event, url: event_admin_reviews_path(event), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
                 <%= f.submit "Approve event" %> 
             <% end %> 
-        </li>
-        <li>    
+        </td> 
+
+        <td>
+        <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
+            <%= f.submit "Delete event" %> 
+        <% end %> 
+        </td>
+
+        <td>    
             <% if event.does_require_update  %> 
             <button type="button"  disabled >Require update</button>
             <% elsif event.does_require_update == false %> 
                 
                 <form><button type="button" id='update-button'>Require update</button></form>
 
-                <span class = 'span'><div class = 'update-form'>
+                <div class = 'update-form'>
                     <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require this update?'}, :html => { :class => 'update_form' } do |f| %>
                     <h3><%= f.label :update_required_explanation %></h3>
                     <br>
                     <%= f.text_area :update_required_explanation, size: "35x8" %>
                     <%= f.submit "Require event update", :class => 'submit-button' %> 
                     <% end %> 
-                </div></span>
+                </div>
             <% end %> 
-        </li>
+        </td>
+
+        <td>
+                <% if event.does_require_update %>
+                    <%= event.update_required_explanation %> 
+                <% end %>
+        </td>
+
+        
     
 
-        <li>
-            <%= form_for event, url: event_admin_reviews_destroy_path(event), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
-                <%= f.submit "Delete event" %> 
-            <% end %> 
-        </li>
-    </ul>
-
+       
+    </tr>
 <% end %>
+</table>

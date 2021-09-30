@@ -5,6 +5,10 @@ class AdminController < ApplicationController
         @events = Event.where(is_approved: false)
     end 
 
+    def events_show
+        @event = Event.find(params[:id])
+    end 
+
     def hosts
         @hosts = HostOrganization.all
         @host = HostOrganization.new
