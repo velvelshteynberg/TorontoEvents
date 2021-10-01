@@ -1,12 +1,25 @@
 <%= form_tag events_path, :method => 'get'  do %>
+
+    <%= label_tag 'Event name' %>
     <%= text_field_tag :name %>
+    <br>
+    <%= label_tag 'Address' %>
     <%= text_field_tag :address %>
+    <br>
+    <%= label_tag 'Start date' %>
     <%= date_field_tag :start_date %>
+
     <%= submit_tag "Search" %>
 <% end %>
+<br><br>
 
 <% @events.each do |event|%>
-    <ul>
-    <li><%= event.name %></li>
-    </ul>
+    <div>
+        <ul>
+            <li><%= event.name %></li>
+            <li><%= event.address %></li>
+            <li><%= event.start_date %></li>
+        </ul>
+    </div>
+    <br><br>
     <% end %>       

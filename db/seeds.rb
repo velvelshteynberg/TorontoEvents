@@ -8,5 +8,5 @@
 
 
 Event.delete_all
-event1 = Event.create(name: "bluffing", address: '18 Rockford rd', start_date: '2021-01-01')
-event2 = Event.create(name: "The show", address: '18 Dewlane rd', start_date: '2021-02-02')
+event1 = Event.create(name: "The Event", address: '18 Rockford rd', start_date: '2021-01-01')
+event2 = Event.create(name: "The Show", address: '18 Dewlane rd', start_date: '2021-02-02')
