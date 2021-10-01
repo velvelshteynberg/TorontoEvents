@@ -1,8 +1,6 @@
 class Event < ApplicationRecord 
   
-  scope :filtered, ->(query_params) { Event::Filter.new.filter(self, query_params) }
-  attr_accessor :address2, :city, :province, :postal_code
-  
+  scope :filtered, ->(query_params) { Event::Filter.new.filter(self, query_params) }  
   
     has_and_belongs_to_many :attending_users,
     join_table: 'events_users',

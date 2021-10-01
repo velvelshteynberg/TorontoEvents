@@ -2,7 +2,7 @@
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyByjwkYLV7LF8vzH8hRkJKkD0e0xMbmx8o"></script>
 
 <h1> Event </h1>
-<%= link_to "Back to Events", events_url %> | <%= link_to "Edit", edit_event_path(@event) %> | <%= link_to "Delete", @event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"} %>
+<%= link_to "Edit", edit_event_path(@event) %> | <%= link_to "Delete", @event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"} %>
 
 <p> <%= @event.name %> </p>
 <p> <%= @event.start_date %> - <%= @event.end_date %></p>
