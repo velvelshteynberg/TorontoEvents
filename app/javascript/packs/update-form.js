@@ -2,24 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
    
     
     console.log('greatness')  
+    let button = document.querySelectorAll('.button');
 
-    var x = document.querySelectorAll('.button')
-    console.log(x)
-    x.forEach(object) => {
-        object.addEventListener('click', () => {
-            console.log(inside);
+    button.forEach((updateButton) => {
+        updateButton.addEventListener('click', () => {
+            console.log('inside the click event');
+            document.querySelector('.update-form').style.display = 'flex';
         });
-    };
-    
-    // document.getElementById("update-button").addEventListener('click', () => {
-    //     document.querySelector(".update-form").style.display = 'flex';
-    //     document.body.style.backgroundColor = 'grey';
-    //     document.querySelector('.submit-button').addEventListener('click', () =>{
-    //     document.querySelector(".update-form").style.display = 'none';
-    //     })
-    // });
-
-  
-
+    });
 });
 

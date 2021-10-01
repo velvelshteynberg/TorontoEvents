@@ -20,7 +20,7 @@
 
 <tbody>
 x=0
-<% @events.each do |event| %>
+<% @events.each_with_index do |event, index| %>
     <tr style = 'height: auto'>
     <td>
     </td>
@@ -53,7 +53,9 @@ x=0
 
         <% if event.does_require_update == false %> 
         <button class = 'button' >Require update</button>
-        <div class = 'update-form'>
+        <div class = <%= "update-form" + "#{index}" %>  >
+        # use a inpute type = hidden to be able to retrieve data in js
+     
         <%= form_for event, url: event_admin_reviews_patch_path(event.id), method: :put, :data => {confirm: 'Are you sure you would like to require this update?'}, :html => { :class => 'update_form' } do |f| %>
         <h3><%= f.label :update_required_explanation %></h3>
         <br>
