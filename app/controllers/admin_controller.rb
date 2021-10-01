@@ -1,6 +1,4 @@
 class AdminController < ApplicationController
-    before_action :current_user.admin?
-    #there has to be a before_action written for these 5 methods
     def events
         @events = Event.where(is_approved: false)
     end 

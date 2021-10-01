@@ -1,5 +1,8 @@
 <%= javascript_pack_tag 'update-form' %>
+
 <h1> Events Pending Approval </h1>
+
+
 
 
 <table style="width:100%" >
@@ -7,17 +10,28 @@
 <thead>
 <tr style = 'height:40px'>
     <th style="width:15%"> Event name </th>
-    <th style="width:15%"> Approve event </th>
-    <th style="width:15%"> Delete event </th>
-    <th style="width:15%"> Require update </th>
-    <th style="width:40%"> Update required explanation </th>
+    <th style="width:15%"> Start Time </th>
+    <th style="width:15%"> End Time </th>
+    <th style="width:15%"> Actions </th>
 </tr>
 </thead>
 
 <tbody>
 <% @events.each do |event| %>
     <tr style = 'height: auto'>
-        <td> <u> <%= link_to "#{event.name}", admin_events_show_path(id: event.id),  :class => 'item' %> </u> </td>
+        <td> 
+            <u> 
+                <%= link_to "#{event.name}", admin_events_show_path(id: event.id),  :class => 'item' %> 
+            </u> 
+        </td>
+        <td>
+            <%= "#{event.start_date} #{event.start_time.strftime("%I:%M %p")}" %>
+        </td>
+
+        <td>
+            <%= "#{event.end_date} #{event.end_time.strftime("%I:%M %p")}" %>
+        </td>
+      
        
         <td>
             <%= form_for event, url: event_admin_reviews_path(event), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
@@ -33,10 +47,11 @@
 
         <td>    
             <% if event.does_require_update  %> 
-            <button type="button"  disabled >Require update</button>
+            <button type="button"  disabled  >Require update</button>
             <% elsif event.does_require_update == false %> 
                 
-                <form><button type="button" id='update-button'>Require update</button></form>
+                <button onclick="adminAction()">Require update</button>
+             
 
                 <div class = 'update-form'>
                     <%= form_for event, url: event_admin_reviews_patch_path(event), method: :put, :data => {confirm: 'Are you sure you would like to require this update?'}, :html => { :class => 'update_form' } do |f| %>
