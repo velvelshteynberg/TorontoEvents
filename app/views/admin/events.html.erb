@@ -9,21 +9,27 @@
 
 <thead>
 <tr style = 'height:40px'>
+    <th> Checkbox </th>
     <th style="width:15%"> Event name </th>
-    <th style="width:15%"> Start Time </th>
-    <th style="width:15%"> End Time </th>
+    <th style="width:15%"> Start Date and Time </th>
+    <th style="width:15%"> End Date and Time </th>
+    <th style="width:15%"> Required update explanation</th>
     <th style="width:15%"> Actions </th>
 </tr>
 </thead>
 
 <tbody>
+x=0
 <% @events.each do |event| %>
     <tr style = 'height: auto'>
+    <td>
+    </td>
         <td> 
             <u> 
                 <%= link_to "#{event.name}", event_path(id: event.id),  :class => 'item' %> 
             </u> 
         </td>
+
         <td>
             <%= "#{event.start_date} #{event.start_time.strftime("%I:%M %p")}" %>
         </td>
@@ -31,14 +37,34 @@
         <td>
             <%= "#{event.end_date} #{event.end_time.strftime("%I:%M %p")}" %>
         </td>
-      
-       
-       
 
-        
-    
+        <td>
+            <%= event.update_required_explanation %>
+        </td>
 
-       
+        <td>
+        <%= form_for event, url: event_admin_reviews_path(event.id), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
+            <%= f.submit "Approve event" %> 
+        <% end %>
+
+        <%= form_for event, url: event_admin_reviews_destroy_path(event.id), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
+            <%= f.submit "Delete event" %> 
+        <% end %>
+
+        <% if event.does_require_update == false %> 
+        <button class = 'button' >Require update</button>
+        <div class = 'update-form'>
+        <%= form_for event, url: event_admin_reviews_patch_path(event.id), method: :put, :data => {confirm: 'Are you sure you would like to require this update?'}, :html => { :class => 'update_form' } do |f| %>
+        <h3><%= f.label :update_required_explanation %></h3>
+        <br>
+        <%= f.text_area :update_required_explanation, size: "35x8" %>
+        <%= f.submit "Require event update", :class => 'submit-button' %> 
+        <% end %> 
+        </div>
+        <% end %>
+        </td>
     </tr>
+    x = x + 1
 <% end %>
+</tbody>
 </table>
