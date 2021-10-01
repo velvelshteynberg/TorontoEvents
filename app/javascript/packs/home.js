@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let header = document.querySelector('.app_header');
     let main = document.querySelector('.app_header_main');
     let bottom = document.querySelector('.app_header_bottom');
-    if (window.location.href === '/') {
+    if (location.pathname === '/') {
         console.log("else");
     } else {
         // top.style.height = "120px";
