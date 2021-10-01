@@ -4,31 +4,32 @@
 
 
 <div class="form">
-<div class="contanct_us"> Contact Us </div>
+<div class="form_title"> Contact Us </div>
 <p class="contact_statement"> Question, comment, or suggestion?  Fill out the form below, and we will try to get back to you as soon as possible. </p>
 
 <%= form_for :random_guys, url: toronto_events_contact_us_form_path do |f| %>
     
-    <div class="formField">
+    <div class="field">
     <%= f.label :first_name, :class => 'form_label'%>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, autofocus: true, :class => 'form_box' %>
     </div>
 
-    <div class="formField">
+    <div class="field">
     <%= f.label :last_name, :class => 'form_label'%>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, :class => 'form_box' %>
     </div>
     
-    <div class="formField">
+    <div class="field">
     <%= f.label :email, :class => 'form_label'%>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, :class => 'form_box' %>
     </div>
 
-    <div class="formField">
+    <div class="field">
     <%= f.label :message, :class => 'form_label'%>
-    <%= f.text_area :message %>
+    <%= f.text_area :message, :class => 'form_box' %>
     </div>
 
-    <%= f.submit "Submit"%>
-</div>
+    <%= f.submit "Submit", :class => 'submit' %>
     <% end %>
+    
+</div>

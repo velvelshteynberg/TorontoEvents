@@ -1,4 +1,8 @@
 class Event < ApplicationRecord 
+  
+  scope :filtered, ->(query_params) { Event::Filter.new.filter(self, query_params) }
+  
+  
     has_and_belongs_to_many :attending_users,
     join_table: 'events_users',
     class_name: 'User',
@@ -42,5 +46,6 @@ class Event < ApplicationRecord
       if start_date == end_date && start_time >= end_time
        errors.add(:times, "cannot be the same and end time cannot be earlier than start time")
     end
-  end
+    end 
+
 end

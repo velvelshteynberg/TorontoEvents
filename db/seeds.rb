@@ -48,3 +48,4 @@ caterer6= Caterer.create(name: 'Lechaim Catering', website: 'https://lechaimcate
 caterer7= Caterer.create(name: 'Pantry', website: 'https://www.pantryfoods.ca', email: 'orders@pantryfoods.ca', 
  mailing_address: '3456 Bathurst St, Toronto ON', phone_number: '416.785.0996', description: 'Our philosophy is to provide fresh, tasty, wholesome, straightforward, innovative food. 
  Our menus showcase an array of dairy and vegetarian delights.')
+
