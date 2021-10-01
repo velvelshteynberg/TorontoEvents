@@ -2,28 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.container {
-    display: grid;
-    grid-template-columns: 50vh 50vh;
-    justify-content: center;
-    column-gap: 10px;
-    grid-template-rows: 25vh;
-}
+// .container {
+//     display: grid;
+//     grid-template-columns: 50vh 50vh;
+//     justify-content: center;
+//     column-gap: 10px;
+//     grid-template-rows: 25vh;
+// }
 
-.event1 {
-    // grid-column: 1/2;
-    // background-color: purple;
-    background-image: url("img3.jpg");
-    background-size: contain;
-    // height: 100px;
-    filter: grayscale(100%);
-}
+// .event1 {
+//     // grid-column: 1/2;
+//     // background-color: purple;
+//     background-image: url("img3.jpg");
+//     background-size: contain;
+//     // height: 100px;
+//     filter: grayscale(100%);
+// }
 
-.event2 {
-    // grid-column: 2/3;
-    background-image: url("img2.jpg");
-    background-size: contain;
-}
+// .event2 {
+//     // grid-column: 2/3;
+//     background-image: url("img2.jpg");
+//     background-size: contain;
+// }
+
 
 .event3 {
     // grid-column: 1/2;

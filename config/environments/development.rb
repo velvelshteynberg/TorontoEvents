@@ -63,6 +63,10 @@ Rails.application.configure do
   config.client_id = '640825717208-tvucjhtfivusp1f1e59521vpnr5krnil.apps.googleusercontent.com'
 
   config.client_secret = 'fQ-NqAloR20maLxnH5YzhmU7'
+  config.assets.precompile += %w( '.svg' )  
+
+  config.assets.css_compressor = :sass
+
 
   # config.action_mailer.default_url_options = { host: ‘localhost’, port: 3000 }
 end
