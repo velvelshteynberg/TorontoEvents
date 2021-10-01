@@ -6,9 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-HostOrganization.destroy_all
-Caterer.destroy_all
-Event.destroy_all
+HostOrganization.delete_all
+Caterer.delete_all
 
 ho1= HostOrganization.create(name: 'Chai Lifeline Canada', website: 'https://chailifelinecanada.org', email: 'cageneral@chailifeline.org',
  mailing_address: '300A Wilson Ave. Toronto, Ontario, M3H 1S8', phone_number: '647.430.5933', description: 'When a child is born 
@@ -30,11 +29,22 @@ ho6= HostOrganization.create(name: "Kayla's Children Centre (KCC)", website: 'ht
 ho7= HostOrganization.create(name: 'Ashreinu', website: 'http://www.campashreinu.ca', email: 'campashreinu123@gmail.com', mailing_address: '410 Lawrence Ave. W. Toronto, Ontario M5M 1C2', 
 phone_number: '416-787-1489', description: 'A unique year-round program for Jewish girls that has been instilling Jewish pride and values since 1994. Ashreinu programs include Shabbatons, trips, carnivals, parties, and a sunday school, day camp and overnight camp. A year with Ashreinu is packed with fun and excitement, all in a warm, friendly Jewish environment that will make you feel like you’re among family.' )
 
-caterer1= Caterer.create(name: 'Jacobs Catering', website: 'https://www.jacobscatering.ca', email: 'info@jacobscatering.ca', phone_number: '905.886.3832', description: 'Jacobs Catering is a name that continues to stand for quality, elegance and caring. When we provide catering for your simcha you will enjoy a hassle-free event which comes from over 45 years of experience in the Toronto Community. We pay attention to even the smallest detail to reflect your individual tastes, adding those special touches that will make your occasion a one-of-a-kind event.')
-caterer2= Caterer.create(name: 'Mitzuyan Kosher Catering', website: 'https://mitzuyankoshercatering.com', email: 'norman@mitzuyankoshercaterer.com', mailing_address: '173 Dolomite Drive Toronto ON M3J 2N1', phone_number: '416-419-5260', description: 'Mitzuyan is a full service kosher catering company serving Toronto, Vaughan, Richmond Hill, Markham, Mississauga and other municipalities in the region.')
-caterer3= Caterer.create(name: "Ely's Fine Foods", website: 'https://elysfinefoods.com', email: 'catering@elysfinefoods.com', mailing_address: '3537 Bathurst St. Toronto, ON M6A 2C6', phone_number: '416.782.3231', description: 'From our take out retail location, where all our food is made fresh daily, to our exceptional catering services, or even our wholesale packaged foods, you are sure to experience the convenience and flavorsome food prepared by Ely’s Fine Foods. With a focus on locally sourced and seasonal ingredients, we bring our best to every event and every meal, treating it as if it were our own.')
-caterer4= Caterer.create(name: 'Milk n honey', website: 'https://milknhoney.ca', email: 'order@milknhoney.ca', mailing_address: '3457 Bathurst Street North York, ON M6A 2C5', phone_number: '416.789.7651', description: 'Kosher Restaurant and Catering in Toronto')
-caterer5= Caterer.create(name: 'Menchens Catering', website: 'https://menchens.ca', email: 'naomi@menchens.ca', phone_number: '416-638-8381', description: 'Our cuisine coordinators will develop delicious menus, customized for your individual tastes and palates. We will also be happy to coordinate an array of other event needs, such as tablecloth rentals, floral arrangements and musicians.
-We are renowned for the elegance of our food presentation, which is always complimented by the highest standards of culinary excellence. Only the freshest ingredients are incorporated in our dishes, from our succulent meats to our decadent desserts. An affair catered by Menchen’s will leave a lasting impression on all who attend.')
-caterer6= Caterer.create(name: 'Lechaim Catering', website: 'https://lechaimcatering.com', email: '', mailing_address: '868 Magnetic Drive, Toronto, Ontario M3J 2S2, Canada', phone_number: '416.650.5440')
-caterer7= Caterer.create(name: 'Pantry', website: 'https://www.pantryfoods.ca', email: 'orders@pantryfoods.ca', mailing_address: '3456 Bathurst St, Toronto ON', phone_number: '416.785.0996', description: 'Our philosophy is to provide fresh, tasty, wholesome, straightforward, innovative food. Our menus showcase an array of dairy and vegetarian delights.')
+caterer1= Caterer.create(name: 'Jacobs Catering', website: 'https://www.jacobscatering.ca', email: 'info@jacobscatering.ca',
+ phone_number: '905.886.3832', description: 'Jacobs Catering is a name that continues to stand for quality, elegance and caring. 
+ When we provide catering for your simcha you will enjoy a hassle-free event which comes from over 45 years of experience in the Toronto Community. 
+ We pay attention to even the smallest detail to reflect your individual tastes, adding those special touches that will make your occasion a one-of-a-kind event.')
+caterer2= Caterer.create(name: 'Mitzuyan Kosher Catering', website: 'https://mitzuyankoshercatering.com', email: 'norman@mitzuyankoshercaterer.com',
+ mailing_address: '173 Dolomite Drive Toronto ON M3J 2N1', phone_number: '416-419-5260', description: 'Mitzuyan is a full service kosher catering company serving Toronto, Vaughan, Richmond Hill, Markham, Mississauga and other municipalities in the region.')
+caterer3= Caterer.create(name: "Ely's Fine Foods", website: 'https://elysfinefoods.com', email: 'catering@elysfinefoods.com',
+ mailing_address: '3537 Bathurst St. Toronto, ON M6A 2C6', phone_number: '416.782.3231', description: 'From our take out retail location, where all our food is made fresh daily, to our exceptional catering services, or even our wholesale packaged foods, you are sure to experience the convenience and flavorsome food prepared by Ely’s Fine Foods. With a focus on locally sourced and seasonal ingredients, we bring our best to every event and every meal, treating it as if it were our own.')
+caterer4= Caterer.create(name: 'Milk n honey', website: 'https://milknhoney.ca', email: 'order@milknhoney.ca', mailing_address: '3457 Bathurst Street North York, ON M6A 2C5',
+ phone_number: '416.789.7651', description: 'Kosher Restaurant and Catering in Toronto with outstanding service.')
+caterer5= Caterer.create(name: 'Menchens Catering', website: 'https://menchens.ca', email: 'naomi@menchens.ca', phone_number: '416-638-8381', 
+ description: 'Our cuisine coordinators will develop delicious menus, customized for your individual tastes and palates. We will also be happy to coordinate an array of other event needs, such as tablecloth rentals, floral arrangements and musicians.
+ We are renowned for the elegance of our food presentation, which is always complimented by the highest standards of culinary excellence. 
+ Only the freshest ingredients are incorporated in our dishes, from our succulent meats to our decadent desserts. An affair catered by Menchen’s will leave a lasting impression on all who attend.')
+caterer6= Caterer.create(name: 'Lechaim Catering', website: 'https://lechaimcatering.com', mailing_address: '868 Magnetic Drive, 
+ Toronto, Ontario M3J 2S2, Canada', phone_number: '416.650.5440')
+caterer7= Caterer.create(name: 'Pantry', website: 'https://www.pantryfoods.ca', email: 'orders@pantryfoods.ca', 
+ mailing_address: '3456 Bathurst St, Toronto ON', phone_number: '416.785.0996', description: 'Our philosophy is to provide fresh, tasty, wholesome, straightforward, innovative food. 
+ Our menus showcase an array of dairy and vegetarian delights.')
