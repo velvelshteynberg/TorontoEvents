@@ -16,10 +16,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             
-            form.addEventListener('submit', () => {
-                console.log('inside submit event');
+            form.addEventListener('submit', (e) => {
+               /* e.preventDefault();
+                e.stopPropagation();*/
+                
+
                 div.style.display = 'none';
                 document.body.style.backgroundColor = 'white';
+
+               /*let message = new FormData(form);
+
+                fetch(form.action, {
+                    method: form.method, 
+                    body: message , 
+                    headers: {
+                        Accept: 'text/html'
+                    }
+                }).then((data) => data.text())
+                  .then ((data) => {
+                      console.log(data)
+                      form.reset();
+                  }) .catch((err) => console.log(err))*/
+
             })
         });
 
