@@ -1,0 +1,136 @@
+
+.app_header {
+    height: 400px;
+    background-image: url("bg-pattern-intro.svg");
+    background-size: cover;
+    border-bottom-right-radius: 60px;
+    // max-height: 1816px;
+    // margin-top: -1359px;
+    // width: 100%;
+    // text-indent: -577px;
+    // overflow: hidden;
+   // background: radial-gradient(rgb(255, 61, 84),hsl(13, 100%, 72%));
+   // img {
+   //     margin-top: -200px;
+  //      height: auto;
+  ///      overflow: hidden;
+  //      width: 100%;
+  //      position: absolute;
+  //      opacity: 1.5;
+  //      bottom: auto;
+  //  }
+    .app_nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        .app_logo {
+            margin: 0;
+            font-family: "KleeOne";
+            font-size: x-large; 
+            padding: 10px;
+            h2 a {
+            text-decoration: none;
+            color: white;
+            }
+        }
+        .app_nav_menu {
+            margin-left: 0;
+            margin-top: 30px;
+            ul {
+                display: flex;
+                flex-direction: row;
+                li{
+                    list-style: none;
+                    a {
+                        padding: 0;
+                        margin: 0 10px;
+                        text-decoration: none;
+                        color:white;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+        .logged_in_user_greeting {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            .user_icon {
+                height: 41px;
+                opacity: .5;
+            }
+        }
+        .app_login_options {
+            margin-left: 22%;
+            ul {
+                display: flex;
+                margin-top: 30px;
+                li{
+                    list-style: none;
+                    margin-left: 15px;
+                    a{
+                        text-decoration: none;
+                        font-size: 20px;
+                    }
+                    .signup {
+                        color: white;
+                    }
+                    .login{
+                        color: rgb(255, 61, 84);
+                        font-weight: bold;
+                        background-color: white;
+                        padding: 15px;
+                        border-radius: 30px;
+                    }
+                }
+                
+            }
+        }
+    }
+    .app_header_main {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        div {
+            text-align: center;
+            color: white;
+            .topHeadline {
+                font-size: 350%;
+                font-family: "KleeOne";
+            }
+            .topSubline {
+                font-family: "Montserrat";
+                font-size: 130%;
+            }
+        }
+    }
+    .app_header_bottom {
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+        div {
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            .topBrowseEventsButton {
+                text-decoration: none;
+                color: rgb(255, 61, 84);
+                font-weight: bolder;
+                background-color: white;
+                border-radius: 30px;
+                padding: 12px;
+            }
+            .topCreateEventButton {
+                text-decoration: none;
+                color: white;
+                padding: 12px;
+                border-radius: 30px;
+                border: solid 2px white;
+            }
+        }
+    }
+    
+}
+

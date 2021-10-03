@@ -4,39 +4,21 @@
       <title>TorontoEvents</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
-
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
       <script src="https://kit.fontawesome.com/a5ac8db979.js" crossorigin="anonymous"></script>
   </head>
 
  <body>
- <% if current_user %>
- <% if current_user.admin == false %>
-  <div id = "top">
-        <ul class = 'navBar'>
-          <li>
-              <%= link_to "About Us", toronto_events_about_us_path, :class => "navBarItem" %>
-          </li>
-          <li>
-              <%= link_to "Events", events_path, :class=> "navBarItem" %>
-          </li>
-          <li>
-              <%= link_to "Contact us", toronto_events_contact_path, :class=> "navBarItem" %>
-          </li>
-          <li>
-              <%= link_to "Sign in", "#", :class=> "navBarItem" %>
-          </li>
-          <li>
-              <%= link_to "Sign up", "#", :class=> "navBarItem" %>
-          </li>
-          <li>
-              <%= link_to "Create Event", new_event_path, :class=> "navBarItem" %>
-          </li>
-        </ul>
-    </div>
-    <% elsif current_user.admin %>
-    <div >
+  <div class="app_header">
+    <div class="app_nav">
+      <div class="app_logo">
+        <h2> <%= link_to "Toronto Events", root_path%> </h2>      
+      </div>
+      <div class="app_nav_menu">
+        
+           <% if current_user.admin %>
+
       <ul>
         <li>
             <%= link_to "Pending Events", admin_events_path, :class => 'item' %>
@@ -48,69 +30,94 @@
             <%= link_to "Caterers", admin_caterers_path, :class => 'item' %>
         </li>
       </ul>
-    </div>
-  <% end %>
   <% else %>
-  <div id = "top">
-    <ul class = 'navBar'>
-      <li>
-          <%= link_to "About Us", toronto_events_about_us_path, :class => "navBarItem" %>
-      </li>
-      <li>
-          <%= link_to "Events", events_path, :class=> "navBarItem" %>
-      </li>
-      <li>
-          <%= link_to "Contact us", toronto_events_contact_path, :class=> "navBarItem" %>
-      </li>
-      <li>
-          <%= link_to "Sign in", "#", :class=> "navBarItem" %>
-      </li>
-      <li>
-          <%= link_to "Sign up", "#", :class=> "navBarItem" %>
-      </li>
-      <li>
-          <%= link_to "Create Event", new_event_path, :class=> "navBarItem" %>
-      </li>
-    </ul>
-  </div>
-<% end %>
+        
 
-
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
- 
-      <%= yield %>
-
-
-
-  <div class = 'footer'>
-      <div class = 'footerIcons'>
-        <%= image_tag("facebook.png", :class => 'icon') %>
-        <%= image_tag("instagram.png", :class => 'icon')%>
-        <%= image_tag("twitter.png", :class => 'icon')%>
-        <%= image_tag("pintrest.png", :class => 'icon')%>
-      </div>
-      <h3 class = 'title'>Toronto Events</h3>
-      <ul class = 'navBarUl bottom'>
-        <li>
-          <%= link_to "Home", root_path, :class => 'bottomNavBarItem' %>
-        </li>
-        <li>
-          <%= link_to "About us", toronto_events_about_us_path, :class => 'bottomNavBarItem' %>
-        </li>
-        <li>
-          <%= link_to "Contact us", toronto_events_contact_path, :class => 'bottomNavBarItem' %>
-        </li>
-      </ul>
-      
-      <div class= 'signupform'>
-        <h4> Subscribe to our emails </h4>
-        <%= form_for :subscriber, url: subscribers_path do |f| %>
-          <%= f.email_field :Email, placeholder: "email@example.com", :class => 'item' %>
-          <%= f.submit "Subscribe", :class => 'item  item3' %>
+        <ul>
+          <li>
+              <%= link_to "Events", events_path %>
+          </li>
+          <li>
+              <%= link_to "Create Event", new_event_path %>
+          </li>
+          <li>
+              <%= link_to "Contact us", toronto_events_contact_path %>
+          </li>
+        </ul>
+        
         <% end %>
       </div>
+
+      <% if current_user %>
+        <p class="logged_in_user_greeting"> Hi <%= current_user.username%> <%= image_tag("user_icon_150670.png", :class => 'user_icon') %> </p>
+      <% else %>
+        <div class="app_login_options">
+          <ul>
+            <li>
+            <%= link_to "Sign up", new_user_registration_path, :class=> "signup" %>
+            </li>
+            <li>
+                <%= link_to "Login", new_user_session_path, :class=> "login" %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="app_header_main">
+      <div>
+        <p class="topHeadline">
+          Explore and Construct
+        </p>
+        <p class="topSubline"> 
+          Take part in upcoming events, or generate your own to share
+        </p>
+      </div> 
+    </div>
+
+    <div class="app_header_bottom">
+      <div id="topEventsButtons">
+        <%= link_to "Browse Events", events_path, :class=>'topBrowseEventsButton'%>
+        <%= link_to "Create Event", new_event_path, :class=>'topCreateEventButton' %>
+      </div>
+    </div>
+  </div>
+
+
+<div class="mainContainer">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</div>
+
+
+  <div class = 'bottom'>
+      <div class = 'copyrightLogo'>
+       <p> <%= image_tag("Copyright.png", :class => 'icon')%> <span>TorontoEvents2021</span></p>  
+      </div>
+
+      <div class= 'subscribe'>
+        <p class="subscribe_text"> Get email updates on the latest upcoming events! </p>
+        <%= form_for :subscriber, url: subscribers_path do |f| %>
+          <%= f.email_field :Email, placeholder: "email@example.com", :class => 'emailforsubscribe' %>
+          <%= f.submit "Subscribe", :class => 'subscribeButton' %>
+        <% end %>
+      </div>
+
+      <div class = 'bottomNav'>
+        <ul>
+          <li>
+            <%= link_to "Home", root_path, :class => 'bottomNavBarItem' %>
+          </li>
+          <li>
+            <%= link_to "About us", toronto_events_about_us_path, :class => 'bottomNavBarItem' %>
+          </li>
+          <li>
+            <%= link_to "Contact us", toronto_events_contact_path, :class => 'bottomNavBarItem' %>
+          </li>
+        </ul>
+      </div>
+      
         
   </div>
   </body>

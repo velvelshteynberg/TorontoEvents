@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_03_140404) do
+ActiveRecord::Schema.define(version: 2021_09_19_182056) do
+
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "question_id"
@@ -58,10 +59,10 @@ ActiveRecord::Schema.define(version: 2021_10_03_140404) do
     t.boolean "does_require_update", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "caterer_id"  
     t.string "update_required_explanation"
-    t.datetime "update_required_timestamp"
-    t.integer "caterer_id"
-    t.boolean "checkbox", default: false
+    t.datetime "update_required_timestamp", precision: 6, null: false
+    
   end
 
   create_table "events_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

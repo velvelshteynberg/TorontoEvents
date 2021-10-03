@@ -1,4 +1,14 @@
 class User < ApplicationRecord
+  has_and_belongs_to_many :attending_events,
+  join_table: 'events_users',
+    class_name: 'Event',
+    inverse_of: :events_users
+    has_and_belongs_to_many :bookmarked_events, 
+    join_table: 'bookmarked_events',
+    class_name: 'Event',
+    inverse_of: :bookmarked_events
+    has_many :events
+    
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

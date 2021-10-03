@@ -1,0 +1,35 @@
+.links {
+    color: rgb(219, 37, 58);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.links:hover {
+    text-decoration: underline;
+}
+
+.googleAuthentication {
+    background-color: white;
+    border: 2px solid white ;
+    border-radius: 15px;
+    box-shadow: 2px 2px 3px 2px grey;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    min-width: fit-content;
+    max-width: 200px;
+    .sign_in_with_google:hover {
+        text-decoration: none;
+
+    }
+    .googleIcon {
+        padding-right: 22px;
+        height: 25px;
+    }
+.googleAuthentication:hover {
+    background-color: grey;
+}
+.googleAuthentication::selection {
+    background-color: hotpink;
+}
+}

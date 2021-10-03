@@ -1,15 +1,21 @@
-// document.addEventListener('DOMContentLoaded', function(){
-//     console.log(location.pathname);
-//     let top = document.querySelector('#top');
-//     if (location.pathname === '/') {
-//         // top.style.height = "20%";
-//         // top.style.color = "blue";
-//         console.log("hi");
-//     } else {
-//         top.style.height = "120px";
-//         console.log("else")
-//     }        
-
-// });
+document.addEventListener('DOMContentLoaded', function(){
+    console.log(location.pathname);
+    let header = document.querySelector('.app_header');
+    let main = document.querySelector('.app_header_main');
+    let bottom = document.querySelector('.app_header_bottom');
+    if (location.pathname === '/') {
+        console.log("else");
+    } else {
+        // top.style.height = "120px";
+        console.log("hi");
+        console.log(header);
+        header.style.height = "170px";
+        header.style.padding = "30px";
+        console.log(main);
+        main.style.display = "none";
+        console.log(bottom);
+        bottom.style.display = "none";
+    }        
+});
 
 

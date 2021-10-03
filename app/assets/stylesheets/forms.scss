@@ -1,0 +1,123 @@
+.form {
+    width: 80%;
+    font-size: 100%;
+    color: black;
+    margin: auto;
+}
+
+.field {
+    font-size: 140%;
+}
+
+.form_box {
+    font-size: x-large;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0 40px 0;
+    border-radius: 15px;
+}
+
+.form_box:focus {
+    border-radius: 15px;
+    outline: none;
+    box-shadow: 0px 0px 3px 3px rgb(247, 75, 75);
+}
+
+.form_title {
+    font-family: "KleeOne";
+    font-size: 350%;
+    // width: 100%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.contact_statement {
+    margin-top: 24px;
+    margin-bottom: 50px;
+    font-size: 130%;
+    width: 100%;
+    text-align: center;
+}
+
+.submit {
+    background-color: rgb(255, 87, 87);
+    color: white;
+    font-size: 130%;
+    border-radius: 15px;
+    padding: 16px 100px;
+    display: flex;
+    justify-content: center;
+    max-width: 400px;
+}
+
+.submit:hover {
+    cursor: grab;
+    background-color: rgb(219, 37, 58);
+}
+
+.users_shared_links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+////////////////// TOGGLE SWITCH //////////////////////////////////
+ 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    height: 54px;
+    margin: 10px 15px 20px 0px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 46px;
+    width: 46px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(36px);
+    -ms-transform: translateX(36px);
+    transform: translateX(36px);
+}
+
+.slider::after {
+    right: 4px;
+}
+
+.toggle_label {
+    display: flex;
+    align-items: center;
+}
