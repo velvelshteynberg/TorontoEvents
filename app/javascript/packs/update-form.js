@@ -10,10 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
             let div = document.querySelector(`.div${updateButton.id}`);
             div.style.display = 'flex';
 
-            let form = document.querySelector(`.form${updateButton.id}`);
+            let form = document.querySelector(`.Form${updateButton.id}`);
             form.style.display = 'flex';
             document.body.style.backgroundColor = 'grey';
 
+
+            
+            form.addEventListener('submit', () => {
+                console.log('inside submit event');
+                
+
+            })
         });
 
 
