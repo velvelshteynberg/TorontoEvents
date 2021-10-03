@@ -10,6 +10,7 @@ class AdminReviewsController < ApplicationController
         if @event.delete
             AdminReviewsMailer.deletion_email(@user.email).deliver_now
             flash[:notice] = 'Successfully deleted'
+            redirect_to admin_events_url
         else
             flash[:notice] = 'Unable to delete'
         end 
@@ -25,6 +26,7 @@ class AdminReviewsController < ApplicationController
         if @event.save
             AdminReviewsMailer.approval_email(@user.email).deliver_now
             flash[:notice] = 'Successfully approved'
+            redirect_to admin_events_url
         else
             flash[:notice] = 'Unable to approve'
         end 
@@ -40,6 +42,7 @@ class AdminReviewsController < ApplicationController
         @user = User.find(@event.user_id)
         if @event.save
             AdminReviewsMailer.update_requiring_email(@user.email).deliver_now
+            redirect_to admin_events_url
         else 
         end
     end 

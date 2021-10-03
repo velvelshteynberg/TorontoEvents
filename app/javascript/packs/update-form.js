@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             form.addEventListener('submit', () => {
                 console.log('inside submit event');
-                
-
+                div.style.display = 'none';
+                document.body.style.backgroundColor = 'white';
             })
         });
 
