@@ -1,34 +1,12 @@
+<link rel="stylesheet" type="text/css" href="http://ws1.postescanada-canadapost.ca/css/addresscomplete-2.30.min.css?key=xu36-fp78-xc63-gf59" /><script type="text/javascript" src="http://ws1.postescanada-canadapost.ca/js/addresscomplete-2.30.min.js?key=xu36-fp78-xc63-gf59"></script>
 <h1> Add a new event </h1>
 
-<%= form_for @event do |f| %>
-    <p>
-    <%= f.label :name %> <br>
-    <%= f.text_field :name %>
-    </p>
-    <p>
-    <%= f.label :start_date %> <br>
-    <%= f.text_field :start_date %>
-    </p>
-    <%= f.label :end_date %> <br>
-    <%= f.text_field :end_date %>
-    </p>
-    <p>
-    <%= f.label :start_time %> <br>
-    <%= f.text_field :start_time%>
-    </p>
-    <p>
-    <%= f.label :end_time %> <br>
-    <%= f.text_field :end_time %>
-    </p>
-    <p>
-    <%= f.label :address %> <br>
-    <%= f.text_field :address%>
-    </p>
-    <p>
-    <%= f.label :description %> <br>
-    <%= f.text_field :description %>
-    </p>
-    <p>
-    <%= f.submit "Submit" %>
-    </p>
-    <% end %>
+<% if @event.errors.any? %>
+<ul>
+<% @event.errors.full_messages.each do |m| %>
+    <li> <%= m %> </li>
+    <%end%>
+    </ul>
+<%end%>
+
+<%= render 'form' %>
