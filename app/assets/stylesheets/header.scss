@@ -23,12 +23,15 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        .app_logo{
+        .app_logo {
             margin: 0;
             font-family: "KleeOne";
-            font-size: x-large;
-            color: white;
+            font-size: x-large; 
             padding: 10px;
+            h2 a {
+            text-decoration: none;
+            color: white;
+            }
         }
         .app_nav_menu {
             margin-left: 0;
@@ -46,6 +49,17 @@
                         font-size: 20px;
                     }
                 }
+            }
+        }
+        .logged_in_user_greeting {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            .user_icon {
+                height: 41px;
+                opacity: .5;
             }
         }
         .app_login_options {
