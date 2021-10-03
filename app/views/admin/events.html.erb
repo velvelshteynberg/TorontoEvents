@@ -19,8 +19,7 @@
 </thead>
 
 <tbody>
-x=0
-<% @events.each_with_index do |event, index| %>
+<% @events.each do |event| %>
     <tr style = 'height: auto'>
     <td>
     </td>
@@ -52,21 +51,22 @@ x=0
         <% end %>
 
         <% if event.does_require_update == false %> 
-        <button class = 'button' >Require update</button>
-        <div class = <%= "update-form" + "#{index}" %>  >
-        # use a inpute type = hidden to be able to retrieve data in js
-     
-        <%= form_for event, url: event_admin_reviews_patch_path(event.id), method: :put, :data => {confirm: 'Are you sure you would like to require this update?'}, :html => { :class => 'update_form' } do |f| %>
-        <h3><%= f.label :update_required_explanation %></h3>
-        <br>
-        <%= f.text_area :update_required_explanation, size: "35x8" %>
-        <%= f.submit "Require event update", :class => 'submit-button' %> 
-        <% end %> 
-        </div>
-        <% end %>
+            <button class = 'button' id = <%= event.id %> >Require update</button>
+
+            
+            <div class = 'update-form div<%= event.id%>'>
+            <%= form_for event, url: event_admin_reviews_patch_path(event.id), method: :put, :data => {confirm: 'Are you sure you would like to require this update?'}, :html => { :class => "form form#{event.id}" } do |f| %>
+                <h3><%= f.label :update_required_explanation %></h3>
+              
+                <%= f.text_area :update_required_explanation, size: "35x8" %>
+                <%= f.submit "Require event update", :class => 'submit-button' %> 
+                <% end %> 
+            </div>
+
+            <% end %>
+
         </td>
     </tr>
-    x = x + 1
 <% end %>
 </tbody>
 </table>

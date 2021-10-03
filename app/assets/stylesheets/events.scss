@@ -17,20 +17,16 @@ body {
 .update-form {
     display: none;
     background-color: white;
+    position: absolute;
     width: 350px;
     height: 350px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
+   
 }
 
-.update_form { 
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;  
-    align-items: center;
-    flex-wrap: wrap;
-    flex-basis: 100%;
-}
 
 table, th, td {
     border: 1px solid black;

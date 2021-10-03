@@ -6,9 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     button.forEach((updateButton) => {
         updateButton.addEventListener('click', () => {
-            console.log('inside the click event');
-            document.querySelector('.update-form').style.display = 'flex';
+            console.log(updateButton.id);
+            let div = document.querySelector(`.div${updateButton.id}`);
+            div.style.display = 'flex';
+
+            let form = document.querySelector(`.form${updateButton.id}`);
+            form.style.display = 'flex';
+            document.body.style.backgroundColor = 'grey';
+
         });
+
+
+
+
+
     });
 });
 
