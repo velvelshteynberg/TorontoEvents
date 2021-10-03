@@ -14,7 +14,7 @@
   <div class="app_header">
     <div class="app_nav">
       <div class="app_logo">
-        <h2>Toronto Events</h2>      
+        <h2> <%= link_to "Toronto Events", root_path%> </h2>      
       </div>
       <div class="app_nav_menu">
         <ul>
@@ -29,16 +29,21 @@
           </li>
         </ul>
       </div>
-      <div class="app_login_options">
-        <ul>
-          <li>
-          <%= link_to "Sign up", new_user_registration_path, :class=> "signup" %>
-          </li>
-          <li>
-              <%= link_to "Login", new_user_session_path, :class=> "login" %>
-          </li>
-        </ul>
-      </div>
+
+      <% if current_user %>
+        <p class="logged_in_user_greeting"> Hi <%= current_user.username%> <%= image_tag("user_icon_150670.png", :class => 'user_icon') %> </p>
+      <% else %>
+        <div class="app_login_options">
+          <ul>
+            <li>
+            <%= link_to "Sign up", new_user_registration_path, :class=> "signup" %>
+            </li>
+            <li>
+                <%= link_to "Login", new_user_session_path, :class=> "login" %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
     </div>
 
     <div class="app_header_main">

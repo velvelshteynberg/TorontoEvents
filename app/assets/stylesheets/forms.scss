@@ -26,9 +26,9 @@
 .form_title {
     font-family: "KleeOne";
     font-size: 350%;
-    width: 100%;
+    // width: 100%;
     text-align: center;
-
+    font-weight: 600;
 }
 
 .contact_statement {
@@ -43,9 +43,11 @@
     background-color: rgb(255, 87, 87);
     color: white;
     font-size: 130%;
-    border-radius: 30px;
-    padding: 17px;
-    margin-left: 45%;
+    border-radius: 15px;
+    padding: 16px 100px;
+    display: flex;
+    justify-content: center;
+    max-width: 400px;
 }
 
 .submit:hover {
