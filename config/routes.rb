@@ -9,14 +9,7 @@ Rails.application.routes.draw do
   get 'toronto_events/contact', to: 'about_us#contact_us'
 
   post 'toronto_events/contact_us_form', to: 'about_us#contact_us_form'#, as: 'TorontoEvents_contact'
-
-
   
-   resources :events, only: [:show] do 
-    resources :admin_reviews, only: [:create, :update]
-    delete 'admin_reviews/destroy', to: 'admin_reviews#destroy'
-    patch 'admin_reviews/patch', to: 'admin_reviews#update'
-  end 
 
 
   get 'admin/hosts', to: 'admin#hosts'
@@ -28,9 +21,19 @@ Rails.application.routes.draw do
   
   resources :subscribers, only: [:create]
 
-  resources :events
+  resources :events, except: [:show]
 
-  resources :events, only: [:index, :new]
   resources :host_organizations, only: [:create]
   resources :caterers, only: [:create]
+
+  resources :events, only: [:show] do 
+    resources :admin_reviews, only: [:create, :update]
+    delete 'admin_reviews/destroy', to: 'admin_reviews#destroy'
+    patch 'admin_reviews/patch', to: 'admin_reviews#update'
+    get 'bookmarked', to: 'events#bookmark_event'
+    get 'attending', to: 'events#attending_event'
+  end 
+
+  get 'bookmarked_events', to: 'events#bookmark'
+  get 'attending_events', to: 'events#attending'
 end
