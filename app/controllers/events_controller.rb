@@ -6,6 +6,7 @@ class EventsController < ApplicationController
         @events = Event.filtered(query_params)
     end
 
+
     def show
         @event = Event.find(params[:id])
     end

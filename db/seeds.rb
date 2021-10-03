@@ -8,6 +8,9 @@
 
 HostOrganization.delete_all
 Caterer.delete_all
+Event.delete_all
+User.delete_all
+
 
 ho1= HostOrganization.create(name: 'Chai Lifeline Canada', website: 'https://chailifelinecanada.org', email: 'cageneral@chailifeline.org',
  mailing_address: '300A Wilson Ave. Toronto, Ontario, M3H 1S8', phone_number: '647.430.5933', description: 'When a child is born 
@@ -48,4 +51,9 @@ caterer6= Caterer.create(name: 'Lechaim Catering', website: 'https://lechaimcate
 caterer7= Caterer.create(name: 'Pantry', website: 'https://www.pantryfoods.ca', email: 'orders@pantryfoods.ca', 
  mailing_address: '3456 Bathurst St, Toronto ON', phone_number: '416.785.0996', description: 'Our philosophy is to provide fresh, tasty, wholesome, straightforward, innovative food. 
  Our menus showcase an array of dairy and vegetarian delights.')
+
+
+
+user = User.create(id: 100, phone: '6466466466', password: 'greatness', is_subscribed: false, admin: false, username: "John Doe", email: 'velvelshteynberg@outlook.com')
+
 

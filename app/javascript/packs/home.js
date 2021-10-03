@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log(bottom);
         bottom.style.display = "none";
     }        
-
 });
 
 
