@@ -5,7 +5,7 @@
 
 
 
-<table style="width:100%" >
+<table style="width:100%" class = 'table'>
 
 <thead>
 <tr style = 'height:40px'>
@@ -44,25 +44,34 @@
             <%= event.update_required_explanation %>
         </td>
 
-        <td>
+        <td class="admin">
         <%= form_for event, url: event_admin_reviews_path(event.id), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
-            <%= f.submit "Approve event" %> 
+            <%= image_submit_tag("check.png", class: 'admin-action') %> 
         <% end %>
 
         <%= form_for event, url: event_admin_reviews_destroy_path(event.id), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
-            <%= f.submit "Delete event" %> 
+             <%= image_submit_tag("trash.png", class: 'admin-action') %>
         <% end %>
 
-        <% if event.does_require_update == false %> 
-            <button class = 'button' id = <%= event.id %> >Require update</button>
-
+        <% if event.does_require_update == false %>
+            <%= image_tag "refresh.png", class: "button  admin-action", id: "#{event.id}" %>
             
             <div class = 'update-div div<%= event.id%>'>
-            <%= form_for event, url: event_admin_reviews_patch_path(event.id), method: :put,  :html => { :class => "Form Form#{event.id}" } do |f| %>
+            <%= form_for event, url: event_admin_reviews_patch_path(event.id), method: :put,  :html => { :class => "Form Form#{event.id}" } do |f| %> 
+                <%= image_tag 'logout.png', class: "admin-action logout logout#{event.id}" %>
+
+                <div class = 'insideDiv' >
+                <div class = 'Top'>
+                <h3 class = 'eventName' > <%=event.name%> </h3>
+                </div>
+                <div class = 'Bottom'>
+                <br>
                 <h3><%= f.label :update_required_explanation %></h3>
-                <br><br>
-                <%= f.text_area :update_required_explanation, size: "35x8", placeholder: 'Please explain what excactly you would like updated...' %>
-                <%= f.submit "Require event update" %>
+                <%= f.text_area :update_required_explanation, size: "38x8", placeholder: 'Please explain what exactly you would like updated...' %>
+                <%= f.submit "Request Update", class: 'requireUpdateButton' %>
+                </div>
+                </div>
+
                 <% end %> 
             </div>
 

@@ -12,11 +12,7 @@ Rails.application.routes.draw do
 
 
   
-   resources :events, only: [:show] do 
-    resources :admin_reviews, only: [:create, :update]
-    delete 'admin_reviews/destroy', to: 'admin_reviews#destroy'
-    patch 'admin_reviews/patch', to: 'admin_reviews#update'
-  end 
+ 
 
 
   get 'admin/hosts', to: 'admin#hosts'
@@ -29,9 +25,15 @@ Rails.application.routes.draw do
   
   resources :subscribers, only: [:create]
 
-  resources :events
+  resources :events, except: :show
 
-  resources :events, only: [:index, :new]
+
   resources :host_organizations, only: [:create]
   resources :caterers, only: [:create]
+  resources :events, only: [:show] do 
+    resources :admin_reviews, only: [:create, :update]
+    delete 'admin_reviews/destroy', to: 'admin_reviews#destroy'
+    patch 'admin_reviews/patch', to: 'admin_reviews#update'
+  end 
+
 end

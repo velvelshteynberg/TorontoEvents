@@ -17,8 +17,8 @@
       </div>
       <div class="app_nav_menu">
         
-           <% if current_user.admin %>
-
+  <% if current_user %>
+  <% if current_user.admin %>
       <ul>
         <li>
             <%= link_to "Pending Events", admin_events_path, :class => 'item' %>
@@ -30,7 +30,7 @@
             <%= link_to "Caterers", admin_caterers_path, :class => 'item' %>
         </li>
       </ul>
-  <% else %>
+  <% elsif current_user.admin == false %>
         
 
         <ul>
@@ -46,6 +46,20 @@
         </ul>
         
         <% end %>
+         <% else %>
+         <ul>
+         <li>
+             <%= link_to "Events", events_path %>
+         </li>
+         <li>
+             <%= link_to "Create Event", new_event_path %>
+         </li>
+         <li>
+             <%= link_to "Contact us", toronto_events_contact_path %>
+         </li>
+       </ul>
+
+       <% end %>
       </div>
 
       <% if current_user %>
