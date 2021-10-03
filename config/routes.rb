@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   get 'admin/hosts', to: 'admin#hosts'
   get 'admin/hosts_show'
   get 'admin/events', to: 'admin#events'
-  get 'admin/events_show'
   get 'admin/caterers', to: 'admin#caterers'
   get 'admin/caterers_show' 
+  post 'admin/approve_multiple', to: 'admin#approve_multiple'
   
   
   resources :subscribers, only: [:create]

@@ -18,11 +18,14 @@
 </tr>
 </thead>
 
+
+
 <tbody>
 <% @events.each do |event| %>
     <tr style = 'height: auto'>
-    <td>
-    </td>
+        <td>
+            <%= check_box(event, :checkbox, checked_value: true, unchecked_value: false) %>
+        </td>
         <td> 
             <u> 
                 <%= link_to "#{event.name}", event_path(id: event.id),  :class => 'item' %> 
@@ -69,4 +72,7 @@
     </tr>
 <% end %>
 </tbody>
+
+
+
 </table>

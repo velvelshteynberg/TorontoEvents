@@ -47,5 +47,8 @@ class AdminReviewsController < ApplicationController
         end
     end 
 
+    def approve_multiple
+        puts 'inside approve multiple method'
+    end
 
 end

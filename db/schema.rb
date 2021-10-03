@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_24_213540) do
+ActiveRecord::Schema.define(version: 2021_10_03_140404) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "question_id"
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 2021_09_24_213540) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bookmarked_events", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.index ["user_id", "event_id"], name: "index_bookmarked_events_on_user_id_and_event_id"
   end
 
   create_table "caterers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -53,7 +59,14 @@ ActiveRecord::Schema.define(version: 2021_09_24_213540) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "update_required_explanation"
-    t.datetime "update_required_timestamp", precision: 6, null: false
+    t.datetime "update_required_timestamp"
+    t.integer "caterer_id"
+    t.boolean "checkbox", default: false
+  end
+
+  create_table "events_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "host_organizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
