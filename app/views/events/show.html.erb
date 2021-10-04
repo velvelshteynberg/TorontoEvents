@@ -30,13 +30,13 @@
 
 </div>
 <% if !current_user.admin %>
-<div class="event_buttons"> <%= image_tag("bookmark2.png", :class => 'icon pop_i')%>
+<div class="event_buttons">
     <% if current_user.bookmarked_events.include?(@event) %>
         <%= link_to "Remove Bookmark", event_bookmarked_path(@event),  :class=> "bookmark" %> 
     <%else%>
         <%= link_to "Bookmark", event_bookmarked_path(@event), :class=> "bookmark"  %> 
     <%end %>
-    <%= image_tag("user2.png", :class => 'icon pop_i')%>
+   
     <% if current_user.attending_events.include?(@event) %> 
         <%= link_to "Not Attending", event_attending_path(@event), :class=> "bookmark" %> 
     <%else%>

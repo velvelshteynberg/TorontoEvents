@@ -28,6 +28,15 @@ body {
    
 }
 
+.error_messages {
+  color: red;
+  font-weight: bolder;
+  font-size: larger;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+}
+
 .Form {
   display: none;
   flex-direction: column;

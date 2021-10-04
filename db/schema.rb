@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_19_182056) do
-
+ActiveRecord::Schema.define(version: 2021_09_24_213540) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "question_id"
@@ -55,14 +54,13 @@ ActiveRecord::Schema.define(version: 2021_09_19_182056) do
     t.time "end_time"
     t.text "address"
     t.text "description"
-    t.boolean "is_approved", default: false
-    t.boolean "does_require_update", default: false
+    t.boolean "is_approved"
+    t.boolean "does_require_update"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "caterer_id"  
+    t.integer "caterer_id"
     t.string "update_required_explanation"
-    t.datetime "update_required_timestamp", precision: 6, null: false
-    
+    t.datetime "update_required_timestamp"
   end
 
   create_table "events_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -102,14 +100,6 @@ ActiveRecord::Schema.define(version: 2021_09_19_182056) do
     t.string "last_name"
     t.string "email"
     t.string "message"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "random_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -30,22 +30,7 @@
             <%= link_to "Caterers", admin_caterers_path, :class => 'item' %>
         </li>
       </ul>
-  <% elsif current_user.admin == false %>
-        
-
-        <ul>
-          <li>
-              <%= link_to "Events", events_path %>
-          </li>
-          <li>
-              <%= link_to "Create Event", new_event_path %>
-          </li>
-          <li>
-              <%= link_to "Contact us", toronto_events_contact_path %>
-          </li>
-        </ul>
-        
-        <% end %>
+  
          <% else %>
          <ul>
          <li>
@@ -111,8 +96,10 @@
 
 
 <div class="mainContainer">
+<div>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  </div>
   <%= yield %>
 </div>
 

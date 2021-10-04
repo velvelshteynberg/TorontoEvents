@@ -1,4 +1,4 @@
-<%= javascript_pack_tag "events" %>
+
 <div class="search_container">
 
 <%= form_tag events_path, :method => 'get'  do %>
@@ -24,18 +24,4 @@
 <% end %>
 </div>
 
-<div class="container">
-<% @events.each do |event| %>
-  
-    <div class="event" id=<%= event.id %> >
-        <p class="name"> <%= link_to event.name, event_path(event.id) %> </p>
-        <div class="event_info">
-            <p> <%= event.start_date %> - <%= event.start_time.strftime("%I:%M %p") %> </p>
-            <p> <%= event.end_date %> - <%= event.end_time.strftime("%I:%M %p") %></p>
-        </div>
-   </div>
-<%end%>      
-</div>
-
-
-
+<%= render "events" %>

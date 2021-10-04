@@ -2,7 +2,7 @@
 <h1 class="form_title"> Add a New Event </h1>
 
 <% if @event.errors.any? %>
-<ul>
+<ul class="error_messages">
 <% @event.errors.full_messages.each do |m| %>
     <li> <%= m %> </li>
     <%end%>
