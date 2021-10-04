@@ -1,11 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @events = Event.filtered(query_params)
+    @events = Event.where(is_approved: true).order(start_date: :desc).take(4)
   end
 
-  private
-  def query_params
-  query_params = params
-  query_params ? query_params.permit(:name, :address, :start_date) : {}
-  end
 end
