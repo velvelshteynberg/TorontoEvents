@@ -2,8 +2,10 @@
 .app_header {
     height: 400px;
     background-image: url("bg-pattern-intro.svg");
+    inset: 0;
     background-size: cover;
     border-bottom-right-radius: 60px;
+    background-position: 100% 100%;
     // max-height: 1816px;
     // margin-top: -1359px;
     // width: 100%;

@@ -3,3 +3,25 @@
   <h3><%= current_user.email %></h3>
 <% end %>
 
+<% counter = 0 %>
+<div class="container">
+<% while counter < 4 %>
+<% @events.each do |event| %>
+  
+  <div class="event home_page_events" id=<%= event.id %> >
+      <p class="name"> <%= link_to event.name, event_path(event.id) %> </p>
+      <div class="event_info">
+          <p> <%= event.start_date %> - <%= event.start_time.strftime("%I:%M %p") %> </p>
+          <p> <%= event.end_date %> - <%= event.end_time.strftime("%I:%M %p") %></p>
+      </div>
+ </div>
+  <% counter += 1%>
+
+  <% if counter >= 4 %>
+  <% break %>
+   <% end %>
+   <% end %>
+  
+  
+<%end%>      
+</div>
