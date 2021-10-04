@@ -1,0 +1,87 @@
+<%= javascript_pack_tag 'update-form' %>
+
+<h1> Events Pending Approval </h1>
+
+
+
+
+<table style="width:100%" class = 'table'>
+
+<thead>
+<tr style = 'height:40px'>
+    <th> Checkbox </th>
+    <th style="width:15%"> Event name </th>
+    <th style="width:15%"> Start Date and Time </th>
+    <th style="width:15%"> End Date and Time </th>
+    <th style="width:15%"> Required update explanation</th>
+    <th style="width:15%"> Actions </th>
+</tr>
+</thead>
+
+
+
+<tbody>
+<% @events.each do |event| %>
+    <tr style = 'height: auto'>
+        <td>
+            <%= check_box(event, :checkbox, checked_value: true, unchecked_value: false) %>
+        </td>
+        <td> 
+            <u> 
+                <%= link_to "#{event.name}", event_path(id: event.id),  :class => 'item' %> 
+            </u> 
+        </td>
+
+        <td>
+            <%= "#{event.start_date} #{event.start_time.strftime("%I:%M %p")}" %>
+        </td>
+
+        <td>
+            <%= "#{event.end_date} #{event.end_time.strftime("%I:%M %p")}" %>
+        </td>
+
+        <td>
+            <%= event.update_required_explanation %>
+        </td>
+
+        <td class="admin">
+        <%= form_for event, url: event_admin_reviews_path(event.id), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
+            <%= image_submit_tag("check.png", class: 'admin-action') %> 
+        <% end %>
+
+        <%= form_for event, url: event_admin_reviews_destroy_path(event.id), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
+             <%= image_submit_tag("trash.png", class: 'admin-action') %>
+        <% end %>
+
+        <% if event.does_require_update == false %>
+            <%= image_tag "refresh.png", class: "button  admin-action", id: "#{event.id}" %>
+            
+            <div class = 'update-div div<%= event.id%>'>
+            <%= form_for event, url: event_admin_reviews_patch_path(event.id), method: :put,  :html => { :class => "Form Form#{event.id}" } do |f| %> 
+                <%= image_tag 'logout.png', class: "admin-action logout logout#{event.id}" %>
+
+                <div class = 'insideDiv' >
+                <div class = 'Top'>
+                <h3 class = 'eventName' > <%=event.name%> </h3>
+                </div>
+                <div class = 'Bottom'>
+                <br>
+                <h3><%= f.label :update_required_explanation %></h3>
+                <%= f.text_area :update_required_explanation, size: "38x8", placeholder: 'Please explain what exactly you would like updated...' %>
+                <%= f.submit "Request Update", class: 'requireUpdateButton' %>
+                </div>
+                </div>
+
+                <% end %> 
+            </div>
+
+            <% end %>
+
+        </td>
+    </tr>
+<% end %>
+</tbody>
+
+
+
+</table>

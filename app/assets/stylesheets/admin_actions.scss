@@ -1,0 +1,50 @@
+.admin {
+    display: flex;
+}
+.admin-action {
+    height: 30px;
+    width: 30px;
+}
+.requireUpdateButton {
+    border-radius: 30px;
+    background-color: white; 
+    border: 1px black solid;
+    width: 33.3%;
+    height: 30px;
+}
+
+.logout {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.eventName {
+    text-transform: capitalize;
+    font-family: "Montserrat";
+    justify-self: flex-start;
+}
+
+.insideDiv {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.Top {
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 18px;
+}
+.Bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+}

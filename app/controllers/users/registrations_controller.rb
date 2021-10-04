@@ -50,10 +50,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    root_path
+  def after_sign_in_path_for(resource)
+    toronto_events_admin_dashboard_path
   end
 
+  def after_sign_up_path_for(resource)
+    toronto_events_admin_dashboard_path(resource) if is_navigational_format?
+  end
+
+  def stored_locations_for(resource)
+    nil
+  end 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)

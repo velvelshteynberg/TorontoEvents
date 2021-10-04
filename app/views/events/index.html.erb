@@ -1,5 +1,6 @@
 <%= javascript_pack_tag "events" %>
 <div class="search_container">
+
 <%= form_tag events_path, :method => 'get'  do %>
 
     <div class="search_form_box">
@@ -25,6 +26,7 @@
 
 <div class="container">
 <% @events.each do |event| %>
+  
     <div class="event" id=<%= event.id %> >
         <p class="name"> <%= link_to event.name, event_path(event.id) %> </p>
         <div class="event_info">
@@ -34,5 +36,6 @@
    </div>
 <%end%>      
 </div>
+
 
 

@@ -4,7 +4,6 @@
       <title>TorontoEvents</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
-
       <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
       <script src="https://kit.fontawesome.com/a5ac8db979.js" crossorigin="anonymous"></script>
@@ -17,6 +16,23 @@
         <h2> <%= link_to "Toronto Events", root_path%> </h2>      
       </div>
       <div class="app_nav_menu">
+
+           <% if current_user && current_user.admin %>
+
+      <ul>
+        <li>
+            <%= link_to "Pending Events", admin_events_path, :class => 'item' %>
+        </li>
+        <li>
+            <%= link_to "Host Organization's", admin_hosts_path, :class => 'item' %>
+        </li>
+        <li>
+            <%= link_to "Caterers", admin_caterers_path, :class => 'item' %>
+        </li>
+      </ul>
+  <% elsif current_user.admin == false %>
+        
+
         <ul>
           <li>
               <%= link_to "Events", events_path %>
@@ -28,10 +44,38 @@
               <%= link_to "Contact us", toronto_events_contact_path %>
           </li>
         </ul>
+        
+        <% end %>
+         <% else %>
+         <ul>
+         <li>
+             <%= link_to "Events", events_path %>
+         </li>
+         <li>
+             <%= link_to "Create Event", new_event_path %>
+         </li>
+         <li>
+             <%= link_to "Contact us", toronto_events_contact_path %>
+         </li>
+       </ul>
+
+       <% end %>
       </div>
 
       <% if current_user %>
-        <p class="logged_in_user_greeting"> Hi <%= current_user.username%> <%= image_tag("user_icon_150670.png", :class => 'user_icon') %> </p>
+      <div class="dropdown">
+      <button class="dropbtn"><p class="logged_in_user_greeting"> Hi <%= current_user.username%> <%= image_tag("user_icon_150670.png", :class => 'user_icon') %> <i class="fa fa-caret-down"></i> </p> 
+        
+      </button>
+      <div class="dropdown-content">
+       
+        <%= link_to "Bookmarked Events", bookmarked_events_path%>
+        <%= link_to "Attending Events", attending_events_path %>
+      
+      
+      </div>
+    </div> 
+        
       <% else %>
         <div class="app_login_options">
           <ul>
@@ -69,9 +113,7 @@
 <div class="mainContainer">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
   <%= yield %>
-
 </div>
 
 

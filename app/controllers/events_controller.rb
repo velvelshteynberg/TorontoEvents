@@ -6,8 +6,11 @@ class EventsController < ApplicationController
         @events = Event.filtered(query_params)
     end
 
+
     def show
         @event = Event.find(params[:id])
+        @host_organization = @event.host_organization
+        @caterer = @event.caterer
     end
     
 
@@ -43,6 +46,38 @@ class EventsController < ApplicationController
         @event = Event.find(params[:id])
         @event.destroy
         redirect_to events_url
+    end
+
+    def bookmark_event
+        @event = Event.find(params[:event_id])
+       if !current_user.bookmarked_events.include?(@event)
+        current_user.bookmarked_events << @event
+        flash[:notice] = 'Successfuly Bookmarked'
+       else
+        current_user.bookmarked_events.delete(@event)
+        flash[:notice] = 'Removed from bookmark list'
+       end
+       render :show
+    end
+
+    def attending_event
+        @event = Event.find(params[:event_id])
+        if !current_user.attending_events.include?(@event)
+         current_user.attending_events << @event
+         flash[:notice] = 'Marked attending'
+        else
+         current_user.attending_events.delete(@event)
+         flash[:notice] = 'Removed from attending list'
+        end
+        render :show
+    end
+
+    def attending
+        @events = current_user.attending_events
+    end
+
+    def bookmark
+        @events = current_user.bookmarked_events
     end
   
    private

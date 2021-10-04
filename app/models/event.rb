@@ -21,6 +21,8 @@ class Event < ApplicationRecord
     validate :end_date_cannot_be_in_the_past
     validate :end_date_after_start_date
     validate :times_cannot_be_the_same
+  
+    before_update :generate_timestamp
 
     def start_date_cannot_be_in_the_past
         if start_date.present? && start_date < Date.today
@@ -46,5 +48,9 @@ class Event < ApplicationRecord
        errors.add(:times, "cannot be the same and end time cannot be earlier than start time")
     end
     end 
+  
+  def generate_timestamp
+    self.update_required_timestamp = DateTime.now
+  end
 
 end
