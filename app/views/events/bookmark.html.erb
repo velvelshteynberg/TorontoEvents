@@ -1,3 +1,5 @@
 <h1> Bookmarked Events </h1>
-
+<% if @events.empty? %>
+<p>No Events Bookmarked Yet </p>
+<%end%>
 <%= render "events" %>

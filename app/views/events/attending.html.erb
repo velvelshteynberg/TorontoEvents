@@ -1,3 +1,5 @@
 <h1> Attending Events </h1>
-
+<% if @events.empty? %>
+<p>No Events Marked Attending Yet </p>
+<%end%>
 <%= render "events" %>
