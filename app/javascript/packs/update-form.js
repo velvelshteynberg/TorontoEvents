@@ -14,7 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
             form.style.display = 'flex';
             document.body.style.backgroundColor = 'grey';
 
-
+            let logout = document.querySelector(`.logout${updateButton.id}`);
+            logout.addEventListener('click', (e) => {
+                div.remove();
+                div.style.display = 'none';
+                document.body.style.backgroundColor = 'white';
+            });
             
             form.addEventListener('submit', (e) => {
                /* e.preventDefault();
