@@ -50,11 +50,8 @@ caterer7= Caterer.create(name: 'Pantry', website: 'https://www.pantryfoods.ca', 
  mailing_address: '3456 Bathurst St, Toronto ON', phone_number: '416.785.0996', description: 'Our philosophy is to provide fresh, tasty, wholesome, straightforward, innovative food. 
  Our menus showcase an array of dairy and vegetarian delights.')
 
- event1 = Event.create(name: 'The presentation', start_time: '16:44:44', end_time: '17:00:00', start_date: '2022-12-12', end_date: '
-2023-01-01')
 
 
-
-user = User.create(phone: '6466466466', password: 'greatness', is_subscribed: false, admin: false, username: "John Doe", email: 'velvelshteynberg@outlook.com')
+user = User.create(phone: '6466466466', password: 'greatness', is_subscribed: false, admin: true, username: "John Doe", email: 'admin@admin.com')
 
 

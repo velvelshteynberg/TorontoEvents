@@ -18,9 +18,9 @@ class Event::Filter
       end
 
       if scope.present? 
-        return scope
+        return scope.where(is_approved: true)
       else 
-        return Event.all
+        return Event.where(is_approved: true)
       end 
       
     end
