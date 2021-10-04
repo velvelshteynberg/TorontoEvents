@@ -110,14 +110,20 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'https://tranquil-refuge-45262.herokuapp.com/' }
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       port: 587,
       address: 'smtp.gmail.com',
-      user_name: ,
-      password: ,
+      user_name: 'AdalegIt2021@gmail.com',
+      password: 'saet mony fprj wves',
       authentication: :plain,
       enable_starttls_auto: true
     }
+    config.client_id = '640825717208-tvucjhtfivusp1f1e59521vpnr5krnil.apps.googleusercontent.com'
+
+  config.client_secret = 'fQ-NqAloR20maLxnH5YzhmU7'
+  
 end
+
+
