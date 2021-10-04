@@ -9,6 +9,8 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find(params[:id])
+        @host_organization = @event.host_organization
+        @caterer = @event.caterer
     end
     
 
