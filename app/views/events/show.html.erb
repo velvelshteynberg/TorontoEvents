@@ -1,53 +1,63 @@
 <%= javascript_pack_tag "googlemaps" %>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyByjwkYLV7LF8vzH8hRkJKkD0e0xMbmx8o"></script>
 
-<h1> Event </h1>
+<h1>  <%= @event.name %> </h1>
+<div class="ShowContainer">
+<div class="Textcontent">
+
 
 <% if current_user.events.include?(@event) %>
-<%= link_to "Edit", edit_event_path(@event) %> | <%= link_to "Delete", @event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"} %>
+<div class="links">
+    <%= link_to "Edit", edit_event_path(@event) %>  
+    <%= link_to "Delete", @event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"} %>
+</div>
 <%end%>
+
 <div>
-<% if current_user.bookmarked_events.include?(@event) %>
-<%= link_to "Remove Bookmark", event_bookmarked_path(@event) %> |
-<%else%>
-<%= link_to "Bookmark", event_bookmarked_path(@event) %> |
-<%end %>
+        <p> <label> Start Date: </label> </p>
+        <p> <%= @event.start_date %> <%= @event.start_time.strftime("%I:%M %p") %></p>
 
-<% if current_user.attending_events.include?(@event) %>
-<%= link_to "Not Attending", event_attending_path(@event) %> 
-<%else%>
-<%= link_to "Attending", event_attending_path(@event) %> 
-<%end %>
+        <p> <label> End Date: </label> </p>
+        <p> <%= @event.end_date %>  <%= @event.end_time.strftime("%I:%M %p") %></p>
 
+        <p> <label> Location: </label> </p>
+        <p id= "address"> <%= @event.address %></p>
+
+      
+        <p><%= @event.description %></p>
+        <p><span>Hosted By:</span> <%=  @event.host_organization.name %> <a class="button" href="#popup1"><%= image_tag("info.png", :class => 'icon pop_i')%> </a></p>
+        <p><span>Caterer: </span><%= @event.caterer.name %> <a class="button" href="#popup2"><%= image_tag("info.png", :class => 'icon pop_i')%> </a> </p>
 
 
 </div>
-<p> <%= @event.name %> </p>
-<p> <%= @event.start_date %> - <%= @event.end_date %></p>
+<% if !current_user.admin %>
+<div class="event_buttons"> <%= image_tag("bookmark2.png", :class => 'icon pop_i')%>
+    <% if current_user.bookmarked_events.include?(@event) %>
+        <%= link_to "Remove Bookmark", event_bookmarked_path(@event),  :class=> "bookmark" %> 
+    <%else%>
+        <%= link_to "Bookmark", event_bookmarked_path(@event), :class=> "bookmark"  %> 
+    <%end %>
+    <%= image_tag("user2.png", :class => 'icon pop_i')%>
+    <% if current_user.attending_events.include?(@event) %> 
+        <%= link_to "Not Attending", event_attending_path(@event), :class=> "bookmark" %> 
+    <%else%>
+        <%= link_to "Attending", event_attending_path(@event), :class=> "bookmark" %> 
+    <%end %>
+</div> 
+<%else %>
 
-<p> <%= @event.start_time.strftime("%I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %></p>
-<p id= "address"> <%= @event.address %></p>
-
- <div id="map" style="width: 320px; height: 480px;"></div>
-
-<p> <%= @event.description %></p>
-
-
-
-<% if current_user.admin %>
-    <td>
+    
     <%= form_for @event, url: event_admin_reviews_path(@event), method: :post, :data => {confirm: 'Are you sure that you would like to approve this event?'} do |f| %>
         <%= f.submit "Approve event" %> 
     <% end %> 
-    </td> 
+    
 
-    <td>
     <%= form_for @event, url: event_admin_reviews_destroy_path(@event), method: :delete, :data => {confirm: 'Are you sure you would like to delete this event? '} do |f| %>
     <%= f.submit "Delete event" %> 
     <% end %> 
-    </td>
 
-    <td>    
+
+   
     <% if @event.does_require_update  %> 
     <button type="button"  disabled  >Require update</button>
     <% elsif @event.does_require_update == false %> 
@@ -64,16 +74,74 @@
             <% end %> 
         </div>
     <% end %> 
-    </td>
+    
 
-    <td>
+    
         <% if @event.does_require_update %>
             <%= @event.update_required_explanation %> 
         <% end %>
-    </td>
 
-    <p> Return to <u> <%= link_to ' All non-approved events', admin_events_path, :class => 'item' %> </u> </p>
+
 <% end %>
+</div>
 
 
 
+<div id="map" style="width: 50%; height: 480px;"></div>
+
+</div>
+<div id="popup1" class="overlay">
+	<div class="popup">
+		
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			<p class="host_name">
+            <%= @host_organization.name %>
+            </p>
+            <p><%= image_tag("home.png", :class => 'icon pop_i')%>
+            <%= @host_organization.website %>
+            </p>
+            <p> <%= image_tag("email.png", :class => 'icon pop_i')%>
+            <%= @host_organization.email %>
+            </p>
+            <p> <%= image_tag("address.png", :class => 'icon pop_i')%>
+            <%= @host_organization.mailing_address %>
+            </p>
+            <p> <%= image_tag("phone.png", :class => 'icon pop_i')%>
+            <%= @host_organization.phone_number %>
+            </p>
+            <p class="desc">
+            <%= @host_organization.description%>
+            </p>
+
+		</div>
+	</div>
+</div>
+
+<div id="popup2" class="overlay">
+	<div class="popup">
+		
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			<p class="host_name">
+            <%= @caterer.name %>
+            </p>
+            <p> <%= image_tag("home.png", :class => 'icon pop_i')%>
+            <%= @caterer.website %>
+            </p>
+            <p> <%= image_tag("email.png", :class => 'icon pop_i')%>
+            <%= @caterer.email %>
+            </p>
+            <p> <%= image_tag("address.png", :class => 'icon pop_i')%>
+            <%= @caterer.mailing_address %>
+            </p>
+            <p> <%= image_tag("phone.png", :class => 'icon pop_i')%>
+            <%= @caterer.phone_number %>
+            </p>
+            <p class="desc">
+            <%= @caterer.description%>
+            </p>
+
+		</div>
+	</div>
+</div>

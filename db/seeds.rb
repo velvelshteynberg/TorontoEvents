@@ -40,7 +40,7 @@ caterer3= Caterer.create(name: "Ely's Fine Foods", website: 'https://elysfinefoo
  mailing_address: '3537 Bathurst St. Toronto, ON M6A 2C6', phone_number: '416.782.3231', description: 'From our take out retail location, where all our food is made fresh daily, to our exceptional catering services, or even our wholesale packaged foods, you are sure to experience the convenience and flavorsome food prepared by Ely’s Fine Foods. With a focus on locally sourced and seasonal ingredients, we bring our best to every event and every meal, treating it as if it were our own.')
 caterer4= Caterer.create(name: 'Milk n honey', website: 'https://milknhoney.ca', email: 'order@milknhoney.ca', mailing_address: '3457 Bathurst Street North York, ON M6A 2C5',
  phone_number: '416.789.7651', description: 'Kosher Restaurant and Catering in Toronto with outstanding service.')
-caterer5= Caterer.create(name: 'Menchens Catering', website: 'https://menchens.ca', email: 'naomi@menchens.ca', phone_number: '416-638-8381', 
+caterer5= Caterer.create(name: 'Menchens Catering', website: 'https://menchens.ca', mailing_address: '470 Glencairn Ave, North York, ON M5N 1V8, Canada', email: 'naomi@menchens.ca', phone_number: '416-638-8381', 
  description: 'Our cuisine coordinators will develop delicious menus, customized for your individual tastes and palates. We will also be happy to coordinate an array of other event needs, such as tablecloth rentals, floral arrangements and musicians.
  We are renowned for the elegance of our food presentation, which is always complimented by the highest standards of culinary excellence. 
  Only the freshest ingredients are incorporated in our dishes, from our succulent meats to our decadent desserts. An affair catered by Menchen’s will leave a lasting impression on all who attend.')
@@ -55,6 +55,6 @@ caterer7= Caterer.create(name: 'Pantry', website: 'https://www.pantryfoods.ca', 
 
 
 
-user = User.create(id: 100, phone: '6466466466', password: 'greatness', is_subscribed: false, admin: false, username: "John Doe", email: 'velvelshteynberg@outlook.com')
+user = User.create(phone: '6466466466', password: 'greatness', is_subscribed: false, admin: false, username: "John Doe", email: 'velvelshteynberg@outlook.com')
 
 
