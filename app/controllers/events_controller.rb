@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :delete, :show, :index]
 
     def index
         @events = Event.filtered(query_params)
@@ -57,7 +57,7 @@ class EventsController < ApplicationController
         current_user.bookmarked_events.delete(@event)
         flash[:notice] = 'Removed from bookmark list'
        end
-       render :show
+       redirect_to "/events/#{@event.id}"
     end
 
     def attending_event
@@ -69,7 +69,7 @@ class EventsController < ApplicationController
          current_user.attending_events.delete(@event)
          flash[:notice] = 'Removed from attending list'
         end
-        render :show
+        redirect_to "/events/#{@event.id}"
     end
 
     def attending
